@@ -1,9 +1,13 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-const AddWorkoutScreen = () => {
+const AddWorkoutScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>AddWorkoutScreen</Text>
+      <Text style={styles.textStyle}>AddWorkoutScreen</Text>
+      <Button
+        title="Next Screen"
+        onPress={() => navigation.navigate('WorkoutScreen')}
+      />
     </View>
   );
 };
@@ -15,5 +19,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  textStyle: {
+    color: '#000',
   },
 });

@@ -1,9 +1,13 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>ProfileScreen</Text>
+      <Text style={styles.textStyle}>ProfileScreen</Text>
+      <Button
+        title="Next Screen"
+        onPress={() => navigation.navigate('WorkoutHistoryScreen')}
+      />
     </View>
   );
 };
@@ -15,5 +19,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  textStyle: {
+    color: '#000',
   },
 });

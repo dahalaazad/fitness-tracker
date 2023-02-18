@@ -1,9 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>HomeScreen</Text>
+      <Text style={styles.textStyle}>HomeScreen</Text>
+      <Button
+        title="Navigate to Profile"
+        onPress={() => navigation.navigate('ProfileStack')}
+      />
+      <Button
+        title="Next Screen"
+        onPress={() => navigation.navigate('AddWorkoutScreen')}
+      />
     </View>
   );
 };
@@ -15,5 +23,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  textStyle: {
+    color: '#000',
   },
 });
