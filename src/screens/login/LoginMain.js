@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: heightToDp(70),
   },
   itemContainer: {
     paddingHorizontal: widthToDp(30),
