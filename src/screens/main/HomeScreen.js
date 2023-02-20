@@ -4,10 +4,12 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>HomeScreen</Text>
+
       <Button
         title="Navigate to Profile"
         onPress={() => navigation.navigate('ProfileStack')}
       />
+
       <Button
         title="Next Screen"
         onPress={() => navigation.navigate('AddWorkoutScreen')}
