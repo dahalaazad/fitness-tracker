@@ -33,13 +33,13 @@ const PrimaryButton = ({
       buttonColor={buttonBgColor}
       textColor={buttonTextColor}
       style={{
-        height: buttonHeight,
-        width: buttonWidth,
         borderRadius: buttonRadius,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
       }}
       labelStyle={{fontFamily: 'Poppins'}}
-      contentStyle={{height: '100%'}}
+      contentStyle={{
+        paddingVertical: heightToDp(6),
+      }}
       icon={({size, color}) => loginIcon(buttonIconName)}
       onPress={() => {
         onPressHandler();
