@@ -19,4 +19,6 @@ export const Colors = {
   errorMainColor: '#F87171',
   errorDarkColor: '#DC2626',
   buttonBackgroundWhite: 'rgba(254, 254, 254, 0.9)',
+  inputBackgroundWhite: 'rgba(255, 255, 255, 0.6)',
+  loginOverlayColor: 'rgba(51, 51, 51, 0.3)',
 };
