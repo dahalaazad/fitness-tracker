@@ -1,21 +1,22 @@
 import {PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
 import {heightToDp, widthToDp} from '@app/utils';
-import {StyleSheet, Text, View, ImageBackground} from 'react-native';
+import {Text, View, ImageBackground} from 'react-native';
+import {Styles} from './LoginStyles';
 
 const LoginMain = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <View style={Styles.container}>
       <ImageBackground
         source={Images.loginMainBg}
-        style={styles.imageStyle}
+        style={Styles.imageStyle}
         resizeMode="cover">
-        <View style={styles.itemContainer}>
-          <Text style={styles.titleTextStyle}>Mercury</Text>
+        <View style={Styles.itemContainer}>
+          <Text style={Styles.titleTextStyle}>Mercury</Text>
 
           <Text
             style={[
-              styles.subTitleTextStyle,
+              Styles.subTitleTextStyle,
               {paddingVertical: heightToDp(40)},
             ]}>
             Log in or sign up for free
@@ -30,7 +31,7 @@ const LoginMain = ({navigation}) => {
 
           <Text
             style={[
-              styles.subTitleTextStyle,
+              Styles.subTitleTextStyle,
               {paddingVertical: heightToDp(24)},
             ]}>
             Or, continue with
@@ -68,32 +69,3 @@ const LoginMain = ({navigation}) => {
 };
 
 export default LoginMain;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  imageStyle: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    paddingTop: heightToDp(70),
-  },
-  itemContainer: {
-    paddingHorizontal: widthToDp(30),
-  },
-  titleTextStyle: {
-    textAlign: 'center',
-    color: Colors.whiteColor,
-    fontSize: widthToDp(34),
-    fontFamily: 'Poppins',
-  },
-  subTitleTextStyle: {
-    textAlign: 'center',
-    color: Colors.whiteColor,
-    fontSize: widthToDp(16),
-    fontFamily: 'Poppins',
-  },
-  textStyle: {
-    color: '#000',
-  },
-});
