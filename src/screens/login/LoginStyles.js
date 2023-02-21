@@ -12,10 +12,15 @@ export const Styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(51, 51, 51, 0.3)',
+    backgroundColor: Colors.loginOverlayColor,
   },
-  itemContainer: {
+  loginMainItemContainer: {
+    flex: 1,
     paddingTop: heightToDp(70),
+    paddingHorizontal: widthToDp(30),
+  },
+  loginEmailItemContainer: {
+    paddingTop: heightToDp(50),
     paddingHorizontal: widthToDp(30),
   },
   titleTextStyle: {

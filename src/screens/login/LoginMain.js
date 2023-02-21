@@ -12,7 +12,7 @@ const LoginMain = ({navigation}) => {
         style={Styles.imageStyle}
         resizeMode="cover">
         <View style={Styles.overlay}>
-          <View style={Styles.itemContainer}>
+          <View style={Styles.loginMainItemContainer}>
             <Text style={Styles.titleTextStyle}>Mercury</Text>
 
             <Text
