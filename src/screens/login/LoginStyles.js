@@ -9,9 +9,13 @@ export const Styles = StyleSheet.create({
   imageStyle: {
     flex: 1,
     justifyContent: 'flex-start',
-    paddingTop: heightToDp(70),
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(51, 51, 51, 0.3)',
   },
   itemContainer: {
+    paddingTop: heightToDp(70),
     paddingHorizontal: widthToDp(30),
   },
   titleTextStyle: {
