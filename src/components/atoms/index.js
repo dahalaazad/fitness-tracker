@@ -1,3 +1,4 @@
+import InputField from './InputField';
 import PrimaryButton from './PrimaryButton';
 
-export {PrimaryButton};
+export {PrimaryButton, InputField};
