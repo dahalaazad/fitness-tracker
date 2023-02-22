@@ -6,6 +6,8 @@ import {View, TextInput} from 'react-native';
 import {Styles} from './InputFieldStyles';
 
 const InputField = ({secureTextEntry = false, placeholderText, iconName}) => {
+  const [inputValue, setInputValue] = useState('');
+
   const inputFieldIcon = name => {
     switch (name) {
       case 'email':
@@ -23,9 +25,12 @@ const InputField = ({secureTextEntry = false, placeholderText, iconName}) => {
 
       <TextInput
         style={Styles.textInputStyle}
+        value={inputValue}
         placeholder={placeholderText}
         placeholderTextColor={Colors.whiteColor}
         secureTextEntry={secureTextEntry}
+        onChangeText={setInputValue}
+        testID="inputFieldTest"
       />
     </View>
   );
