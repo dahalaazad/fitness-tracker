@@ -1,8 +1,9 @@
+import {View, TextInput} from 'react-native';
+import {useState} from 'react';
+
 import {EmailIcon, PWIcon} from '@app/assets/svg';
 import {Colors} from '@app/constants';
 import {widthToDp} from '@app/utils';
-import {useState} from 'react';
-import {View, TextInput} from 'react-native';
 import {Styles} from './InputFieldStyles';
 
 const InputField = ({secureTextEntry = false, placeholderText, iconName}) => {

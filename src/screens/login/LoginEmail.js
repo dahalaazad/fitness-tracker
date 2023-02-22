@@ -1,7 +1,8 @@
+import {Text, View, ImageBackground} from 'react-native';
+
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
 import {heightToDp} from '@app/utils';
-import {Text, View, ImageBackground} from 'react-native';
 import {Styles} from './LoginStyles';
 
 const LoginEmail = ({navigation}) => {

@@ -1,7 +1,8 @@
+import {Text, View, ImageBackground} from 'react-native';
+
 import {PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
 import {heightToDp, widthToDp} from '@app/utils';
-import {Text, View, ImageBackground} from 'react-native';
 import {Styles} from './LoginStyles';
 
 const LoginMain = ({navigation}) => {
