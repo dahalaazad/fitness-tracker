@@ -41,6 +41,7 @@ const PrimaryButton = ({
         paddingVertical: heightToDp(6),
       }}
       icon={({size, color}) => loginIcon(buttonIconName)}
+      testID="primaryButtonTest"
       onPress={() => {
         onPressHandler();
       }}>
