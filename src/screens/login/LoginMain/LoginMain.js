@@ -1,44 +1,30 @@
-import {InputField, PrimaryButton} from '@app/components';
+import {PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
-import {heightToDp} from '@app/utils';
+import {heightToDp, widthToDp} from '@app/utils';
 import {Text, View, ImageBackground} from 'react-native';
-import {Styles} from './LoginStyles';
+import {Styles} from '../LoginStyles';
 
-const LoginEmail = ({navigation}) => {
+const LoginMain = ({navigation}) => {
   return (
     <View style={Styles.container}>
       <ImageBackground
-        source={Images.loginEmailBg}
+        source={Images.loginMainBg}
         style={Styles.imageStyle}
         resizeMode="cover">
         <View style={Styles.overlay}>
-          <View style={Styles.loginEmailItemContainer}>
+          <View style={Styles.loginMainItemContainer}>
             <Text style={Styles.titleTextStyle}>Mercury</Text>
 
             <Text
               style={[
                 Styles.subTitleTextStyle,
-                {paddingTop: heightToDp(8), paddingBottom: heightToDp(40)},
+                {paddingVertical: heightToDp(40)},
               ]}>
-              Track your workout progress faster
+              Log in or sign up for free
             </Text>
 
-            <InputField placeholderText="Email" iconName="email" />
-
-            <View
-              style={{
-                paddingTop: heightToDp(16),
-                paddingBottom: heightToDp(30),
-              }}>
-              <InputField
-                placeholderText="Password"
-                iconName="password"
-                secureTextEntry={true}
-              />
-            </View>
-
             <PrimaryButton
-              buttonLabel="CREATE ACCOUNT"
+              buttonLabel="CONTINUE WITH EMAIL"
               buttonBgColor={Colors.primaryRedColor}
               buttonTextColor={Colors.whiteColor}
               onPressHandler={() => navigation.navigate('LoginEmail')}
@@ -84,4 +70,4 @@ const LoginEmail = ({navigation}) => {
   );
 };
 
-export default LoginEmail;
+export default LoginMain;

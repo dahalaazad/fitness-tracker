@@ -1,13 +1,5 @@
-import HomeScreen from './HomeScreen';
-import AddWorkoutScreen from './AddWorkoutScreen';
-import WorkoutScreen from './WorkoutScreen';
-import ExerciseScreen from './ExerciseScreen';
-import ResultScreen from './ResultScreen';
-
-export {
-  HomeScreen,
-  AddWorkoutScreen,
-  WorkoutScreen,
-  ExerciseScreen,
-  ResultScreen,
-};
+export * from './HomeScreen';
+export * from './AddWorkoutScreen';
+export * from './WorkoutScreen';
+export * from './ExerciseScreen';
+export * from './ResultScreen';

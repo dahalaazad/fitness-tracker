@@ -1,30 +1,44 @@
-import {PrimaryButton} from '@app/components';
+import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
-import {heightToDp, widthToDp} from '@app/utils';
+import {heightToDp} from '@app/utils';
 import {Text, View, ImageBackground} from 'react-native';
-import {Styles} from './LoginStyles';
+import {Styles} from '../LoginStyles';
 
-const LoginMain = ({navigation}) => {
+const LoginEmail = ({navigation}) => {
   return (
     <View style={Styles.container}>
       <ImageBackground
-        source={Images.loginMainBg}
+        source={Images.loginEmailBg}
         style={Styles.imageStyle}
         resizeMode="cover">
         <View style={Styles.overlay}>
-          <View style={Styles.loginMainItemContainer}>
+          <View style={Styles.loginEmailItemContainer}>
             <Text style={Styles.titleTextStyle}>Mercury</Text>
 
             <Text
               style={[
                 Styles.subTitleTextStyle,
-                {paddingVertical: heightToDp(40)},
+                {paddingTop: heightToDp(8), paddingBottom: heightToDp(40)},
               ]}>
-              Log in or sign up for free
+              Track your workout progress faster
             </Text>
 
+            <InputField placeholderText="Email" iconName="email" />
+
+            <View
+              style={{
+                paddingTop: heightToDp(16),
+                paddingBottom: heightToDp(30),
+              }}>
+              <InputField
+                placeholderText="Password"
+                iconName="password"
+                secureTextEntry={true}
+              />
+            </View>
+
             <PrimaryButton
-              buttonLabel="CONTINUE WITH EMAIL"
+              buttonLabel="CREATE ACCOUNT"
               buttonBgColor={Colors.primaryRedColor}
               buttonTextColor={Colors.whiteColor}
               onPressHandler={() => navigation.navigate('LoginEmail')}
@@ -70,4 +84,4 @@ const LoginMain = ({navigation}) => {
   );
 };
 
-export default LoginMain;
+export default LoginEmail;
