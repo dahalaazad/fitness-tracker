@@ -32,6 +32,7 @@ const InputField = ({
         placeholder={placeholderText}
         placeholderTextColor={Colors.whiteColor}
         secureTextEntry={secureTextEntry}
+        onChangeText={() => {}}
         {...props}
       />
     </View>
