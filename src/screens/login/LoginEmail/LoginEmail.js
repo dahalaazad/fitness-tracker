@@ -1,12 +1,14 @@
+import {Text, View, ImageBackground, StatusBar, ScrollView} from 'react-native';
+
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
 import {heightToDp} from '@app/utils';
-import {Text, View, ImageBackground} from 'react-native';
 import {Styles} from '../LoginStyles';
 
 const LoginEmail = ({navigation}) => {
   return (
-    <View style={Styles.container}>
+    <ScrollView style={Styles.container}>
+      <StatusBar translucent={true} backgroundColor="transparent" />
       <ImageBackground
         source={Images.loginEmailBg}
         style={Styles.imageStyle}
@@ -80,7 +82,7 @@ const LoginEmail = ({navigation}) => {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </ScrollView>
   );
 };
 

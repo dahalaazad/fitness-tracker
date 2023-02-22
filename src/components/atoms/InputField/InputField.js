@@ -1,11 +1,17 @@
+import {View, TextInput} from 'react-native';
+import {useState} from 'react';
+
 import {EmailIcon, PWIcon} from '@app/assets/svg';
 import {Colors} from '@app/constants';
 import {widthToDp} from '@app/utils';
-import {useState} from 'react';
-import {View, TextInput} from 'react-native';
 import {Styles} from './InputFieldStyles';
 
-const InputField = ({secureTextEntry = false, placeholderText, iconName}) => {
+const InputField = ({
+  secureTextEntry = false,
+  placeholderText,
+  iconName,
+  ...props
+}) => {
   const [inputValue, setInputValue] = useState('');
 
   const inputFieldIcon = name => {
@@ -31,6 +37,7 @@ const InputField = ({secureTextEntry = false, placeholderText, iconName}) => {
         secureTextEntry={secureTextEntry}
         onChangeText={setInputValue}
         testID="inputFieldTest"
+        {...props}
       />
     </View>
   );

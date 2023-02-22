@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
+
 import {Colors} from '@app/constants';
-import {heightToDp, widthToDp} from '@app/utils';
+import {height, heightToDp, width, widthToDp} from '@app/utils';
 
 export const Styles = StyleSheet.create({
   container: {
@@ -9,6 +10,8 @@ export const Styles = StyleSheet.create({
   imageStyle: {
     flex: 1,
     justifyContent: 'flex-start',
+    height: height,
+    width: width,
   },
   overlay: {
     flex: 1,

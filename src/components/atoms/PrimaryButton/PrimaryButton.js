@@ -1,7 +1,8 @@
-import {AppleLogo, FbLogo, GoogleLogo} from '@app/assets/svg';
-import {heightToDp, widthToDp} from '@app/utils';
 import {View, Text} from 'react-native';
 import {Button} from 'react-native-paper';
+
+import {AppleLogo, FbLogo, GoogleLogo} from '@app/assets/svg';
+import {heightToDp, widthToDp} from '@app/utils';
 
 const PrimaryButton = ({
   buttonLabel,
