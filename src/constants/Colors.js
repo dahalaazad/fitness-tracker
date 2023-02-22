@@ -3,7 +3,7 @@ export const Colors = {
   primaryTextColor: '#2F3132',
   secondaryTextColor: '#6B7280',
   disableTextColor: '#D1D5DB',
-  whiteColor: '#ffffff',
+  whiteColor: '#FFFFFF',
   blackColor: '#000000',
   defaultBgColor: '#F8F8F8',
   warningLightColor: '#FFED8E',
@@ -18,4 +18,5 @@ export const Colors = {
   errorLightColor: '#FECACA',
   errorMainColor: '#F87171',
   errorDarkColor: '#DC2626',
+  buttonBackgroundWhite: 'rgba(254, 254, 254, 0.9)',
 };

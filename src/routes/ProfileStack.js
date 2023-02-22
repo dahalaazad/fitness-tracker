@@ -7,6 +7,7 @@ const ProfileStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+
       <Stack.Screen
         name="WorkoutHistoryScreen"
         component={WorkoutHistoryScreen}
