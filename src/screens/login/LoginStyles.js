@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
+
 import {Colors} from '@app/constants';
-import {heightToDp, widthToDp} from '@app/utils';
+import {height, heightToDp, width, widthToDp} from '@app/utils';
 
 export const Styles = StyleSheet.create({
   container: {
@@ -9,13 +10,20 @@ export const Styles = StyleSheet.create({
   imageStyle: {
     flex: 1,
     justifyContent: 'flex-start',
+    height: height,
+    width: width,
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(51, 51, 51, 0.3)',
+    backgroundColor: Colors.loginOverlayColor,
   },
-  itemContainer: {
+  loginMainItemContainer: {
+    flex: 1,
     paddingTop: heightToDp(70),
+    paddingHorizontal: widthToDp(30),
+  },
+  loginEmailItemContainer: {
+    paddingTop: heightToDp(50),
     paddingHorizontal: widthToDp(30),
   },
   titleTextStyle: {
