@@ -1,4 +1,4 @@
-import {Text, View, ImageBackground} from 'react-native';
+import {Text, View, ImageBackground, StatusBar} from 'react-native';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
@@ -8,6 +8,7 @@ import {Styles} from './LoginStyles';
 const LoginEmail = ({navigation}) => {
   return (
     <View style={Styles.container}>
+      <StatusBar translucent={true} backgroundColor="transparent" />
       <ImageBackground
         source={Images.loginEmailBg}
         style={Styles.imageStyle}
