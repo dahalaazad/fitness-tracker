@@ -1,4 +1,5 @@
 import {Text, View, ImageBackground, StatusBar, ScrollView} from 'react-native';
+import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
@@ -6,6 +7,17 @@ import {heightToDp} from '@app/utils';
 import {Styles} from '../LoginStyles';
 
 const LoginEmail = ({navigation}) => {
+  const {
+    control,
+    handleSubmit,
+    setError,
+    formState: {errors},
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
   return (
     <ScrollView style={Styles.container}>
       <StatusBar translucent={true} backgroundColor="transparent" />
@@ -25,7 +37,13 @@ const LoginEmail = ({navigation}) => {
               Track your workout progress faster
             </Text>
 
-            <InputField placeholderText="Email" iconName="email" />
+            <InputField
+              control={control}
+              errors={errors}
+              inputName="email"
+              placeholderText="Email"
+              iconName="email"
+            />
 
             <View
               style={{
@@ -33,6 +51,9 @@ const LoginEmail = ({navigation}) => {
                 paddingBottom: heightToDp(30),
               }}>
               <InputField
+                control={control}
+                errors={errors}
+                inputName="password"
                 placeholderText="Password"
                 iconName="password"
                 secureTextEntry={true}
