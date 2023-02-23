@@ -1,4 +1,4 @@
-import {Text, View, ImageBackground} from 'react-native';
+import {Text, View, ImageBackground, ScrollView} from 'react-native';
 
 import {PrimaryButton} from '@app/components';
 import {Colors, Images} from '@app/constants';
@@ -7,7 +7,7 @@ import {Styles} from '../LoginStyles';
 
 const LoginMain = ({navigation}) => {
   return (
-    <View style={Styles.container}>
+    <ScrollView style={Styles.container}>
       <ImageBackground
         source={Images.loginMainBg}
         style={Styles.imageStyle}
@@ -67,7 +67,7 @@ const LoginMain = ({navigation}) => {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </ScrollView>
   );
 };
 
