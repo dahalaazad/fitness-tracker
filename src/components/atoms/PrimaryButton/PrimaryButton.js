@@ -44,9 +44,7 @@ const PrimaryButton = ({
       }}
       icon={({size, color}) => loginIcon(buttonIconName)}
       testID={testID}
-      onPress={() => {
-        onPressHandler();
-      }}>
+      onPress={onPressHandler}>
       {buttonLabel}
     </Button>
   );
