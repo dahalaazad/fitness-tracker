@@ -1,14 +1,30 @@
 import {Text, View, ImageBackground, StatusBar, ScrollView} from 'react-native';
+import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
-import {Colors, Images} from '@app/constants';
+import {Colors, Images, InputRules} from '@app/constants';
 import {heightToDp} from '@app/utils';
-import {Styles} from './LoginStyles';
+import {Styles} from '../LoginStyles';
 
 const LoginEmail = ({navigation}) => {
+  const {
+    control,
+    handleSubmit,
+    setError,
+    formState: {errors},
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+
+  const createAccountButtonHandler = accountData => {
+    console.log(accountData);
+  };
+
   return (
     <ScrollView style={Styles.container}>
-      <StatusBar translucent={true} backgroundColor="transparent" />
       <ImageBackground
         source={Images.loginEmailBg}
         style={Styles.imageStyle}
@@ -25,7 +41,15 @@ const LoginEmail = ({navigation}) => {
               Track your workout progress faster
             </Text>
 
-            <InputField placeholderText="Email" iconName="email" />
+            <InputField
+              testID="emailErrorText"
+              control={control}
+              errors={errors?.email || ''}
+              inputName="email"
+              rules={InputRules.email}
+              placeholderText="Email"
+              iconName="email"
+            />
 
             <View
               style={{
@@ -33,6 +57,11 @@ const LoginEmail = ({navigation}) => {
                 paddingBottom: heightToDp(30),
               }}>
               <InputField
+                testID="passwordErrorText"
+                control={control}
+                errors={errors?.password || ''}
+                inputName="password"
+                rules={InputRules.password}
                 placeholderText="Password"
                 iconName="password"
                 secureTextEntry={true}
@@ -40,10 +69,11 @@ const LoginEmail = ({navigation}) => {
             </View>
 
             <PrimaryButton
+              testID="createAccountButton"
               buttonLabel="CREATE ACCOUNT"
               buttonBgColor={Colors.primaryRedColor}
               buttonTextColor={Colors.whiteColor}
-              onPressHandler={() => navigation.navigate('LoginEmail')}
+              onPressHandler={handleSubmit(createAccountButtonHandler)}
             />
 
             <Text

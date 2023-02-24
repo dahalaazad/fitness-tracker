@@ -16,6 +16,7 @@ const PrimaryButton = ({
   buttonIconColor,
   buttonRadius = widthToDp(40),
   isOutlined,
+  testID,
 }) => {
   const loginIcon = buttonIconName => {
     switch (buttonIconName) {
@@ -42,9 +43,8 @@ const PrimaryButton = ({
         paddingVertical: heightToDp(6),
       }}
       icon={({size, color}) => loginIcon(buttonIconName)}
-      onPress={() => {
-        onPressHandler();
-      }}>
+      testID={testID}
+      onPress={onPressHandler}>
       {buttonLabel}
     </Button>
   );
