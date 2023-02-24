@@ -22,6 +22,7 @@ const LoginEmail = ({navigation}) => {
   const createAccountButtonHandler = accountData => {
     console.log(accountData);
   };
+
   return (
     <ScrollView style={Styles.container}>
       <ImageBackground
