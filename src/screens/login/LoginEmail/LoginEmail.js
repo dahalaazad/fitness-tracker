@@ -44,7 +44,7 @@ const LoginEmail = ({navigation}) => {
             <InputField
               testID="emailErrorText"
               control={control}
-              errors={errors}
+              errors={errors?.email}
               inputName="email"
               rules={InputRules.email}
               placeholderText="Email"
@@ -59,7 +59,7 @@ const LoginEmail = ({navigation}) => {
               <InputField
                 testID="passwordErrorText"
                 control={control}
-                errors={errors}
+                errors={errors?.password}
                 inputName="password"
                 rules={InputRules.password}
                 placeholderText="Password"

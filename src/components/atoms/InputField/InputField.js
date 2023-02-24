@@ -52,9 +52,9 @@ const InputField = ({
           </View>
         )}
       />
-      {errors[inputName] && (
+      {errors && (
         <Text testID={testID} style={Styles.errorText}>
-          {errors[inputName]?.message}
+          {errors?.message}
         </Text>
       )}
     </>
