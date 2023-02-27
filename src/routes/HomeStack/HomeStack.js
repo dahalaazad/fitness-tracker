@@ -1,7 +1,8 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Colors, Images} from '@app/constants';
+import {UserImageIcon} from '@app/components';
+import {Colors} from '@app/constants';
 import {
   HomeScreen,
   AddWorkoutScreen,
@@ -43,13 +44,7 @@ const HomeStack = ({navigation}) => {
           },
 
           headerLeft: () => null,
-          headerRight: () => (
-            <TouchableOpacity
-              style={Styles.headerImageContainer}
-              onPress={() => navigation.navigate('ProfileStack')}>
-              <Image style={Styles.headerImage} source={Images.userImageIcon} />
-            </TouchableOpacity>
-          ),
+          headerRight: () => <UserImageIcon navigation={navigation} />,
         }}
       />
 
