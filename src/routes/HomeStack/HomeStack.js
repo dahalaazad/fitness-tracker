@@ -33,12 +33,7 @@ const HomeStack = ({navigation}) => {
             </View>
           ),
 
-          headerStyle: {
-            height: heightToDp(135),
-            backgroundColor: Colors.primaryRedColor,
-            borderBottomLeftRadius: widthToDp(32),
-            borderBottomRightRadius: widthToDp(32),
-          },
+          headerStyle: Styles.homeScreenHeaderStyle,
 
           headerTitleContainerStyle: {
             paddingLeft: widthToDp(15),

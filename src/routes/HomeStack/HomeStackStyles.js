@@ -30,4 +30,10 @@ export const Styles = StyleSheet.create({
     height: heightToDp(40),
     overflow: 'hidden',
   },
+  homeScreenHeaderStyle: {
+    height: heightToDp(135),
+    backgroundColor: Colors.primaryRedColor,
+    borderBottomLeftRadius: widthToDp(32),
+    borderBottomRightRadius: widthToDp(32),
+  },
 });
