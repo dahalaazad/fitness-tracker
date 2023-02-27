@@ -54,6 +54,10 @@
     "react-test-renderer": "18.2.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "\\.svg$": "<rootDir>/fileTransformer.js"
+    }
   }
 }
