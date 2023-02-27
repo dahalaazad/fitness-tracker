@@ -37,6 +37,7 @@ const PrimaryButton = ({
       style={{
         borderRadius: buttonRadius,
         justifyContent: 'flex-start',
+        alignSelf: 'stretch',
       }}
       labelStyle={{fontFamily: 'Poppins'}}
       contentStyle={{
