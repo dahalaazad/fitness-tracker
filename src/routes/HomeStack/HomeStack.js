@@ -1,4 +1,5 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {Colors, Images} from '@app/constants';
 import {
@@ -9,7 +10,6 @@ import {
   ResultScreen,
 } from '@app/screens';
 import {heightToDp, widthToDp} from '@app/utils';
-import {createStackNavigator} from '@react-navigation/stack';
 import {Styles} from './HomeStackStyles';
 
 const Stack = createStackNavigator();
