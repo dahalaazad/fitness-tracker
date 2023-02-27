@@ -34,7 +34,7 @@ const HomeStack = ({navigation}) => {
           ),
 
           headerStyle: {
-            height: heightToDp(150),
+            height: heightToDp(135),
             backgroundColor: Colors.primaryRedColor,
             borderBottomLeftRadius: widthToDp(32),
             borderBottomRightRadius: widthToDp(32),
