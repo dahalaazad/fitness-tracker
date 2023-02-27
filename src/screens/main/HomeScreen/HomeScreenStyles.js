@@ -8,6 +8,7 @@ export const Styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.whiteColor,
     paddingTop: heightToDp(55),
+    paddingHorizontal: widthToDp(30),
   },
   textStyle: {
     color: Colors.primaryTextColor,
@@ -18,7 +19,6 @@ export const Styles = StyleSheet.create({
   },
   mainItemContainer: {
     flex: 1,
-    paddingHorizontal: widthToDp(30),
     justifyContent: 'center',
     alignItems: 'center',
   },

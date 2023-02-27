@@ -27,14 +27,14 @@ const HomeScreen = ({navigation}) => {
           <Text style={Styles.textStyle}>
             You haven’t added any workout yet.
           </Text>
-
-          <PrimaryButton
-            buttonLabel="ADD NEW WORKOUT"
-            buttonBgColor={Colors.primaryRedColor}
-            buttonTextColor={Colors.whiteColor}
-            onPressHandler={() => navigation.navigate('AddWorkoutScreen')}
-          />
         </View>
+
+        <PrimaryButton
+          buttonLabel="ADD NEW WORKOUT"
+          buttonBgColor={Colors.primaryRedColor}
+          buttonTextColor={Colors.whiteColor}
+          onPressHandler={() => navigation.navigate('AddWorkoutScreen')}
+        />
       </View>
     </ScrollView>
   );
