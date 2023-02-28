@@ -51,11 +51,11 @@ const Signup = ({navigation}) => {
 
             <View style={Styles.inputFieldContainer}>
               <InputField
-                testID="emailErrorText"
+                testID="nameErrorText"
                 control={control}
-                errors={errors?.email || ''}
+                errors={errors?.name || ''}
                 inputName="name"
-                rules={InputRules.email}
+                rules={InputRules.name}
                 placeholderText="Full Name"
                 iconName="name"
               />
