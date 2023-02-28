@@ -49,7 +49,6 @@ export const Styles = StyleSheet.create({
     fontWeight: '700',
   },
   navigateToLoginTextContainer: {
-    flexDirection: 'row',
     paddingVertical: heightToDp(24),
     justifyContent: 'center',
   },
@@ -58,6 +57,6 @@ export const Styles = StyleSheet.create({
     fontSize: widthToDp(16),
     fontFamily: 'Poppins',
     color: Colors.whiteColor,
-    fontWeight: '700',
+    fontWeight: '500',
   },
 });

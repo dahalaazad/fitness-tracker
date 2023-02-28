@@ -113,7 +113,7 @@ const Signup = ({navigation}) => {
                 <Text
                   style={[
                     Styles.createAccountLinkStyle,
-                    {paddingLeft: widthToDp(5)},
+                    {paddingLeft: widthToDp(5), paddingTop: heightToDp(15)},
                   ]}>
                   Login
                 </Text>
