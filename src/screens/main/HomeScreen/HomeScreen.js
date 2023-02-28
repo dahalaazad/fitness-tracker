@@ -1,32 +1,43 @@
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {
+  Text,
+  View,
+  Button,
+  StatusBar,
+  ImageBackground,
+  ScrollView,
+} from 'react-native';
+
+import {PrimaryButton} from '@app/components';
+import {Colors, Images} from '@app/constants';
+import {heightToDp, widthToDp} from '@app/utils';
+import {SkippingIcon} from '@app/assets/svg';
+import {Styles} from './HomeScreenStyles';
 
 const HomeScreen = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>HomeScreen</Text>
+    <ScrollView style={Styles.container}>
+      <StatusBar backgroundColor="#000" />
 
-      <Button
-        title="Navigate to Profile"
-        onPress={() => navigation.navigate('ProfileStack')}
-      />
+      <View style={{flex: 1}}>
+        <View style={Styles.mainItemContainer}>
+          <View style={{paddingBottom: heightToDp(24)}}>
+            <SkippingIcon />
+          </View>
 
-      <Button
-        title="Next Screen"
-        onPress={() => navigation.navigate('AddWorkoutScreen')}
-      />
-    </View>
+          <Text style={Styles.textStyle}>
+            You haven’t added any workout yet.
+          </Text>
+        </View>
+
+        <PrimaryButton
+          buttonLabel="ADD NEW WORKOUT"
+          buttonBgColor={Colors.primaryRedColor}
+          buttonTextColor={Colors.whiteColor}
+          onPressHandler={() => navigation.navigate('AddWorkoutScreen')}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textStyle: {
-    color: '#000',
-  },
-});
