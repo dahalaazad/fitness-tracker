@@ -1,19 +1,19 @@
 import {
   Text,
+  ScrollView,
   View,
   ImageBackground,
   StatusBar,
-  ScrollView,
   TouchableOpacity,
 } from 'react-native';
 import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images, InputRules} from '@app/constants';
-import {heightToDp} from '@app/utils';
+import {heightToDp, widthToDp} from '@app/utils';
 import {Styles} from '../LoginStyles';
 
-const LoginEmail = ({navigation}) => {
+const Signup = ({navigation}) => {
   const {
     control,
     handleSubmit,
@@ -21,6 +21,7 @@ const LoginEmail = ({navigation}) => {
     formState: {errors},
   } = useForm({
     defaultValues: {
+      fullName: '',
       email: '',
       password: '',
     },
@@ -48,10 +49,19 @@ const LoginEmail = ({navigation}) => {
               Track your workout progress faster
             </Text>
 
-            <View
-              style={{
-                height: heightToDp(75),
-              }}>
+            <View style={Styles.inputFieldContainer}>
+              <InputField
+                testID="fullNameErrorText"
+                control={control}
+                errors={errors?.fullName || ''}
+                inputName="fullName"
+                rules={InputRules.fullName}
+                placeholderText="Full Name"
+                iconName="fullName"
+              />
+            </View>
+
+            <View style={Styles.inputFieldContainer}>
               <InputField
                 testID="emailErrorText"
                 control={control}
@@ -63,10 +73,7 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
-            <View
-              style={{
-                height: heightToDp(75),
-              }}>
+            <View style={Styles.inputFieldContainer}>
               <InputField
                 testID="passwordErrorText"
                 control={control}
@@ -79,56 +86,26 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
-            <View style={{paddingBottom: heightToDp(25)}}>
-              <PrimaryButton
-                testID="loginButton"
-                buttonLabel="LOGIN"
-                buttonBgColor={Colors.primaryRedColor}
-                buttonTextColor={Colors.whiteColor}
-                onPressHandler={handleSubmit(createAccountButtonHandler)}
-              />
-            </View>
-
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('Signup');
-              }}>
-              <Text style={Styles.createAccountLinkStyle}>Create Account</Text>
-            </TouchableOpacity>
-
-            <Text
-              style={[
-                Styles.subTitleTextStyle,
-                {paddingVertical: heightToDp(24)},
-              ]}>
-              Or, continue with
-            </Text>
-
             <PrimaryButton
-              buttonLabel="GOOGLE"
-              buttonBgColor={Colors.buttonBackgroundWhite}
-              buttonTextColor={Colors.secondaryTextColor}
-              buttonIconName="google"
+              testID="createAccountButton"
+              buttonLabel="CREATE ACCOUNT"
+              buttonBgColor={Colors.primaryRedColor}
+              buttonTextColor={Colors.whiteColor}
               onPressHandler={() => {}}
             />
 
-            <View style={{paddingVertical: heightToDp(16)}}>
-              <PrimaryButton
-                buttonLabel="FACEBOOK"
-                buttonBgColor={Colors.buttonBackgroundWhite}
-                buttonTextColor={Colors.secondaryTextColor}
-                buttonIconName="facebook"
-                onPressHandler={() => {}}
-              />
-            </View>
+            <View style={Styles.navigateToLoginTextContainer}>
+              <Text style={Styles.navigateToLoginTextStyle}>
+                Already have an account?
+              </Text>
 
-            <PrimaryButton
-              buttonLabel="APPLE"
-              buttonBgColor={Colors.buttonBackgroundWhite}
-              buttonTextColor={Colors.secondaryTextColor}
-              buttonIconName="apple"
-              onPressHandler={() => {}}
-            />
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('LoginEmail');
+                }}>
+                <Text style={Styles.navigateToLoginLinkStyle}>Login</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -136,4 +113,4 @@ const LoginEmail = ({navigation}) => {
   );
 };
 
-export default LoginEmail;
+export default Signup;
