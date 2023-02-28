@@ -89,7 +89,10 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Signup');
+              }}>
               <Text style={Styles.createAccountLinkStyle}>Create Account</Text>
             </TouchableOpacity>
 
