@@ -48,4 +48,16 @@ export const Styles = StyleSheet.create({
     color: Colors.infoLightColor,
     fontWeight: '700',
   },
+  navigateToLoginTextContainer: {
+    flexDirection: 'row',
+    paddingVertical: heightToDp(24),
+    justifyContent: 'center',
+  },
+  navigateToLoginTextStyle: {
+    textAlign: 'center',
+    fontSize: widthToDp(16),
+    fontFamily: 'Poppins',
+    color: Colors.whiteColor,
+    fontWeight: '700',
+  },
 });
