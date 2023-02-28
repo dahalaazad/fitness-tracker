@@ -21,6 +21,7 @@ const Signup = ({navigation}) => {
     formState: {errors},
   } = useForm({
     defaultValues: {
+      name: '',
       email: '',
       password: '',
     },
