@@ -53,9 +53,9 @@ const Signup = ({navigation}) => {
               <InputField
                 testID="nameErrorText"
                 control={control}
-                errors={errors?.name || ''}
+                errors={errors?.fullName || ''}
                 inputName="name"
-                rules={InputRules.name}
+                rules={InputRules.fullName}
                 placeholderText="Full Name"
                 iconName="name"
               />
