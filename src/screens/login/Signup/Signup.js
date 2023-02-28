@@ -106,6 +106,7 @@ const Signup = ({navigation}) => {
               <Text style={Styles.navigateToLoginTextStyle}>
                 Already have an account?
               </Text>
+
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate('LoginEmail');
