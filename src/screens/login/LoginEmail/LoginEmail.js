@@ -41,20 +41,24 @@ const LoginEmail = ({navigation}) => {
               Track your workout progress faster
             </Text>
 
-            <InputField
-              testID="emailErrorText"
-              control={control}
-              errors={errors?.email || ''}
-              inputName="email"
-              rules={InputRules.email}
-              placeholderText="Email"
-              iconName="email"
-            />
+            <View
+              style={{
+                height: heightToDp(75),
+              }}>
+              <InputField
+                testID="emailErrorText"
+                control={control}
+                errors={errors?.email || ''}
+                inputName="email"
+                rules={InputRules.email}
+                placeholderText="Email"
+                iconName="email"
+              />
+            </View>
 
             <View
               style={{
-                paddingTop: heightToDp(16),
-                paddingBottom: heightToDp(30),
+                height: heightToDp(75),
               }}>
               <InputField
                 testID="passwordErrorText"
@@ -68,7 +72,7 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
-            <View style={{paddingBottom: heightToDp(16)}}>
+            <View style={{paddingBottom: heightToDp(25)}}>
               <PrimaryButton
                 testID="loginButton"
                 buttonLabel="LOGIN"
