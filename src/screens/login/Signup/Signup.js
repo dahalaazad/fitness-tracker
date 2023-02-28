@@ -48,10 +48,7 @@ const Signup = ({navigation}) => {
               Track your workout progress faster
             </Text>
 
-            <View
-              style={{
-                height: heightToDp(75),
-              }}>
+            <View style={Styles.inputFieldContainer}>
               <InputField
                 testID="emailErrorText"
                 control={control}
@@ -63,10 +60,7 @@ const Signup = ({navigation}) => {
               />
             </View>
 
-            <View
-              style={{
-                height: heightToDp(75),
-              }}>
+            <View style={Styles.inputFieldContainer}>
               <InputField
                 testID="emailErrorText"
                 control={control}
@@ -78,10 +72,7 @@ const Signup = ({navigation}) => {
               />
             </View>
 
-            <View
-              style={{
-                height: heightToDp(75),
-              }}>
+            <View style={Styles.inputFieldContainer}>
               <InputField
                 testID="passwordErrorText"
                 control={control}
@@ -111,13 +102,7 @@ const Signup = ({navigation}) => {
                 onPress={() => {
                   navigation.navigate('LoginEmail');
                 }}>
-                <Text
-                  style={[
-                    Styles.createAccountLinkStyle,
-                    {paddingLeft: widthToDp(5), paddingTop: heightToDp(15)},
-                  ]}>
-                  Login
-                </Text>
+                <Text style={Styles.navigateToLoginLinkStyle}>Login</Text>
               </TouchableOpacity>
             </View>
           </View>
