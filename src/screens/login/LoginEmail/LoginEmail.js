@@ -1,4 +1,11 @@
-import {Text, View, ImageBackground, StatusBar, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  ImageBackground,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
@@ -41,20 +48,24 @@ const LoginEmail = ({navigation}) => {
               Track your workout progress faster
             </Text>
 
-            <InputField
-              testID="emailErrorText"
-              control={control}
-              errors={errors?.email || ''}
-              inputName="email"
-              rules={InputRules.email}
-              placeholderText="Email"
-              iconName="email"
-            />
+            <View
+              style={{
+                height: heightToDp(75),
+              }}>
+              <InputField
+                testID="emailErrorText"
+                control={control}
+                errors={errors?.email || ''}
+                inputName="email"
+                rules={InputRules.email}
+                placeholderText="Email"
+                iconName="email"
+              />
+            </View>
 
             <View
               style={{
-                paddingTop: heightToDp(16),
-                paddingBottom: heightToDp(30),
+                height: heightToDp(75),
               }}>
               <InputField
                 testID="passwordErrorText"
@@ -68,13 +79,19 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
-            <PrimaryButton
-              testID="createAccountButton"
-              buttonLabel="CREATE ACCOUNT"
-              buttonBgColor={Colors.primaryRedColor}
-              buttonTextColor={Colors.whiteColor}
-              onPressHandler={handleSubmit(createAccountButtonHandler)}
-            />
+            <View style={{paddingBottom: heightToDp(25)}}>
+              <PrimaryButton
+                testID="loginButton"
+                buttonLabel="LOGIN"
+                buttonBgColor={Colors.primaryRedColor}
+                buttonTextColor={Colors.whiteColor}
+                onPressHandler={handleSubmit(createAccountButtonHandler)}
+              />
+            </View>
+
+            <TouchableOpacity onPress={() => {}}>
+              <Text style={Styles.createAccountLinkStyle}>Create Account</Text>
+            </TouchableOpacity>
 
             <Text
               style={[
