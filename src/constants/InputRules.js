@@ -1,4 +1,14 @@
 export const InputRules = {
+  fullName: {
+    required: {
+      value: true,
+      message: 'Please enter your full name',
+    },
+    minLength: {
+      value: 6,
+      message: 'Minium 6 characters',
+    },
+  },
   email: {
     required: {
       value: true,

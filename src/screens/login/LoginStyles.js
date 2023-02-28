@@ -26,6 +26,9 @@ export const Styles = StyleSheet.create({
     paddingTop: heightToDp(50),
     paddingHorizontal: widthToDp(30),
   },
+  inputFieldContainer: {
+    height: heightToDp(75),
+  },
   titleTextStyle: {
     textAlign: 'center',
     color: Colors.whiteColor,
@@ -47,5 +50,25 @@ export const Styles = StyleSheet.create({
     fontFamily: 'Poppins',
     color: Colors.infoLightColor,
     fontWeight: '700',
+  },
+  navigateToLoginTextContainer: {
+    paddingVertical: heightToDp(24),
+    justifyContent: 'center',
+  },
+  navigateToLoginTextStyle: {
+    textAlign: 'center',
+    fontSize: widthToDp(16),
+    fontFamily: 'Poppins',
+    color: Colors.whiteColor,
+    fontWeight: '500',
+  },
+  navigateToLoginLinkStyle: {
+    textAlign: 'center',
+    fontSize: widthToDp(16),
+    fontFamily: 'Poppins',
+    color: Colors.infoLightColor,
+    fontWeight: '700',
+    paddingLeft: widthToDp(5),
+    paddingTop: heightToDp(15),
   },
 });
