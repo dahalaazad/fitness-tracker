@@ -27,6 +27,9 @@ export const Styles = StyleSheet.create({
   errorText: {
     fontFamily: 'Poppins',
     fontSize: widthToDp(12),
-    color: 'red',
+    fontWeight: '600',
+    color: Colors.primaryRedColor,
+    paddingTop: heightToDp(2),
+    paddingLeft: widthToDp(20),
   },
 });
