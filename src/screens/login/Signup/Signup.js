@@ -1,9 +1,16 @@
-import {Text, View, ImageBackground, StatusBar, ScrollView} from 'react-native';
+import {
+  Text,
+  ScrollView,
+  View,
+  ImageBackground,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
 import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images, InputRules} from '@app/constants';
-import {heightToDp} from '@app/utils';
+import {heightToDp, widthToDp} from '@app/utils';
 import {Styles} from '../LoginStyles';
 
 const Signup = ({navigation}) => {
@@ -95,39 +102,23 @@ const Signup = ({navigation}) => {
               onPressHandler={() => {}}
             />
 
-            <Text
-              style={[
-                Styles.subTitleTextStyle,
-                {paddingVertical: heightToDp(24)},
-              ]}>
-              Or, continue with
-            </Text>
-
-            <PrimaryButton
-              buttonLabel="GOOGLE"
-              buttonBgColor={Colors.buttonBackgroundWhite}
-              buttonTextColor={Colors.secondaryTextColor}
-              buttonIconName="google"
-              onPressHandler={() => {}}
-            />
-
-            <View style={{paddingVertical: heightToDp(16)}}>
-              <PrimaryButton
-                buttonLabel="FACEBOOK"
-                buttonBgColor={Colors.buttonBackgroundWhite}
-                buttonTextColor={Colors.secondaryTextColor}
-                buttonIconName="facebook"
-                onPressHandler={() => {}}
-              />
+            <View style={Styles.navigateToLoginTextContainer}>
+              <Text style={Styles.navigateToLoginTextStyle}>
+                Already have an account?
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('LoginEmail');
+                }}>
+                <Text
+                  style={[
+                    Styles.createAccountLinkStyle,
+                    {paddingLeft: widthToDp(5)},
+                  ]}>
+                  Login
+                </Text>
+              </TouchableOpacity>
             </View>
-
-            <PrimaryButton
-              buttonLabel="APPLE"
-              buttonBgColor={Colors.buttonBackgroundWhite}
-              buttonTextColor={Colors.secondaryTextColor}
-              buttonIconName="apple"
-              onPressHandler={() => {}}
-            />
           </View>
         </View>
       </ImageBackground>
