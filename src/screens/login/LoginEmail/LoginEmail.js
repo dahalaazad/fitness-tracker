@@ -68,12 +68,22 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
+            <View style={{paddingBottom: heightToDp(16)}}>
+              <PrimaryButton
+                testID="loginButton"
+                buttonLabel="LOGIN"
+                buttonBgColor={Colors.primaryRedColor}
+                buttonTextColor={Colors.whiteColor}
+                onPressHandler={handleSubmit(createAccountButtonHandler)}
+              />
+            </View>
+
             <PrimaryButton
               testID="createAccountButton"
               buttonLabel="CREATE ACCOUNT"
               buttonBgColor={Colors.primaryRedColor}
               buttonTextColor={Colors.whiteColor}
-              onPressHandler={handleSubmit(createAccountButtonHandler)}
+              onPressHandler={() => {}}
             />
 
             <Text
