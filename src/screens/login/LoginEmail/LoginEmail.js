@@ -20,7 +20,7 @@ const LoginEmail = ({navigation}) => {
   });
 
   const createAccountButtonHandler = accountData => {
-    console.log(accountData);
+    navigation.navigate('HomeStack', {screen: 'HomeScreen'});
   };
 
   return (
