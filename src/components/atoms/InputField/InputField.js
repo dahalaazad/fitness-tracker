@@ -25,7 +25,7 @@ const InputField = ({
         return <EmailIcon />;
       case 'password':
         return <PWIcon />;
-      case 'name':
+      case 'fullName':
         return (
           <Ionicons name="person-outline" color={Colors.whiteColor} size={22} />
         );

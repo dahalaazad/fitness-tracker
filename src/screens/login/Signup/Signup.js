@@ -21,7 +21,7 @@ const Signup = ({navigation}) => {
     formState: {errors},
   } = useForm({
     defaultValues: {
-      name: '',
+      fullName: '',
       email: '',
       password: '',
     },
@@ -51,13 +51,13 @@ const Signup = ({navigation}) => {
 
             <View style={Styles.inputFieldContainer}>
               <InputField
-                testID="nameErrorText"
+                testID="fullNameErrorText"
                 control={control}
                 errors={errors?.fullName || ''}
-                inputName="name"
+                inputName="fullName"
                 rules={InputRules.fullName}
                 placeholderText="Full Name"
-                iconName="name"
+                iconName="fullName"
               />
             </View>
 
