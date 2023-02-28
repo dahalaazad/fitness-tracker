@@ -41,4 +41,11 @@ export const Styles = StyleSheet.create({
   textStyle: {
     color: '#000',
   },
+  createAccountLinkStyle: {
+    textAlign: 'center',
+    fontSize: widthToDp(16),
+    fontFamily: 'Poppins',
+    color: Colors.infoLightColor,
+    fontWeight: '700',
+  },
 });

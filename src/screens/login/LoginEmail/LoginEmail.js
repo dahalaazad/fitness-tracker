@@ -1,4 +1,11 @@
-import {Text, View, ImageBackground, StatusBar, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  ImageBackground,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
@@ -82,13 +89,9 @@ const LoginEmail = ({navigation}) => {
               />
             </View>
 
-            <PrimaryButton
-              testID="createAccountButton"
-              buttonLabel="CREATE ACCOUNT"
-              buttonBgColor={Colors.primaryRedColor}
-              buttonTextColor={Colors.whiteColor}
-              onPressHandler={() => {}}
-            />
+            <TouchableOpacity onPress={() => {}}>
+              <Text style={Styles.createAccountLinkStyle}>Create Account</Text>
+            </TouchableOpacity>
 
             <Text
               style={[
