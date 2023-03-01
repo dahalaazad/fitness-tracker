@@ -1,3 +1,5 @@
+//Setup for testing components with SVG
+
 const path = require('path');
 
 module.exports = {
