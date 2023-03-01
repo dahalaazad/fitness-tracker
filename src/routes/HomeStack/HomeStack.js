@@ -1,4 +1,6 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+
+import {useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {UserImageIcon} from '@app/components';
@@ -16,6 +18,8 @@ import {Styles} from './HomeStackStyles';
 const Stack = createStackNavigator();
 
 const HomeStack = ({navigation}) => {
+  const userName = useSelector(state => state?.auth?.userInfo?.name);
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -30,7 +34,7 @@ const HomeStack = ({navigation}) => {
             <View>
               <Text style={Styles.headerTextTop}>Good Morning,</Text>
 
-              <Text style={Styles.headerTextBottom}>{`${'John Doe'}`}</Text>
+              <Text style={Styles.headerTextBottom}>{`${userName}`}</Text>
             </View>
           ),
 
