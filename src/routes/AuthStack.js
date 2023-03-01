@@ -1,4 +1,4 @@
-import {LoginEmail, LoginMain} from '@app/screens';
+import {LoginEmail, LoginMain, Signup} from '@app/screens';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
@@ -9,6 +9,8 @@ const AuthStack = () => {
       <Stack.Screen name="LoginMain" component={LoginMain} />
 
       <Stack.Screen name="LoginEmail" component={LoginEmail} />
+
+      <Stack.Screen name="Signup" component={Signup} />
     </Stack.Navigator>
   );
 };

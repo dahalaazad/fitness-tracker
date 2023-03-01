@@ -1,6 +1,7 @@
 import {View, TextInput, Text, Image} from 'react-native';
 import {useState} from 'react';
 import {Controller} from 'react-hook-form';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {EmailIcon, PWIcon} from '@app/assets/svg';
 import {Colors} from '@app/constants';
@@ -23,6 +24,10 @@ const InputField = ({
         return <EmailIcon />;
       case 'password':
         return <PWIcon />;
+      case 'fullName':
+        return (
+          <Ionicons name="person-outline" color={Colors.whiteColor} size={22} />
+        );
       default:
         return null;
     }
