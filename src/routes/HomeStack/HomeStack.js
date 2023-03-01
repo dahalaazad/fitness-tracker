@@ -34,7 +34,9 @@ const HomeStack = ({navigation}) => {
             <View>
               <Text style={Styles.headerTextTop}>Good Morning,</Text>
 
-              <Text style={Styles.headerTextBottom}>{`${userName}`}</Text>
+              <Text style={Styles.headerTextBottom}>{`${
+                userName || 'User Name'
+              }`}</Text>
             </View>
           ),
 
