@@ -1,5 +1,4 @@
 import AuthStack from './AuthStack';
-import ProfileStack from './ProfileStack';
+import MainStack from './MainStack';
 
-export {AuthStack, ProfileStack};
-export * from './HomeStack';
+export {MainStack, AuthStack};
