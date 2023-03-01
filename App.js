@@ -1,18 +1,22 @@
-import {AuthStack, HomeStack, ProfileStack} from '@app/routes';
+import {useSelector} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+import {AuthStack, MainStack} from '@app/routes';
 
 const Stack = createStackNavigator();
 
 const App = () => {
+  const isLoggedIn = useSelector(state => state?.auth?.isLoggedIn);
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="AuthStack" component={AuthStack} />
-
-        <Stack.Screen name="HomeStack" component={HomeStack} />
-
-        <Stack.Screen name="ProfileStack" component={ProfileStack} />
+        {isLoggedIn ? (
+          <Stack.Screen name="MainStack" component={MainStack} />
+        ) : (
+          <Stack.Screen name="AuthStack" component={AuthStack} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

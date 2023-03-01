@@ -7,7 +7,7 @@ const UserImageIcon = ({navigation}) => {
   return (
     <TouchableOpacity
       style={Styles.headerImageContainer}
-      onPress={() => navigation.navigate('ProfileStack')}>
+      onPress={() => navigation.navigate('ProfileScreen')}>
       <Image style={Styles.headerImage} source={Images.userImageIcon} />
     </TouchableOpacity>
   );

@@ -1,4 +1,6 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+
+import {useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {UserImageIcon} from '@app/components';
@@ -9,13 +11,17 @@ import {
   WorkoutScreen,
   ExerciseScreen,
   ResultScreen,
+  ProfileScreen,
+  WorkoutHistoryScreen,
 } from '@app/screens';
 import {heightToDp, widthToDp} from '@app/utils';
-import {Styles} from './HomeStackStyles';
+import {Styles} from './MainStackStyles';
 
 const Stack = createStackNavigator();
 
-const HomeStack = ({navigation}) => {
+const MainStack = ({navigation}) => {
+  const userName = useSelector(state => state?.auth?.userInfo?.name);
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -30,7 +36,9 @@ const HomeStack = ({navigation}) => {
             <View>
               <Text style={Styles.headerTextTop}>Good Morning,</Text>
 
-              <Text style={Styles.headerTextBottom}>{`${'John Doe'}`}</Text>
+              <Text style={Styles.headerTextBottom}>{`${
+                userName || 'User Name'
+              }`}</Text>
             </View>
           ),
 
@@ -55,8 +63,15 @@ const HomeStack = ({navigation}) => {
       <Stack.Screen name="ExerciseScreen" component={ExerciseScreen} />
 
       <Stack.Screen name="ResultScreen" component={ResultScreen} />
+
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+
+      <Stack.Screen
+        name="WorkoutHistoryScreen"
+        component={WorkoutHistoryScreen}
+      />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default MainStack;

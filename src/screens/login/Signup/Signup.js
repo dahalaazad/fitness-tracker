@@ -6,14 +6,19 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
+
+import {useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images, InputRules} from '@app/constants';
 import {heightToDp, widthToDp} from '@app/utils';
 import {Styles} from '../LoginStyles';
+import {authUser} from '@app/redux/slices/auth/authSlice';
 
 const Signup = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
@@ -28,7 +33,28 @@ const Signup = ({navigation}) => {
   });
 
   const createAccountButtonHandler = accountData => {
-    navigation.navigate('HomeStack', {screen: 'HomeScreen'});
+    const {fullName, email, password} = accountData;
+    dispatch(
+      authUser({
+        userDetails: {
+          user: {
+            email,
+            name: fullName,
+            password,
+          },
+        },
+        loginURL: 'signup',
+      }),
+    )
+      .unwrap()
+      .then(originalPromiseResult => {
+        if (originalPromiseResult?.status === 200) {
+          navigation.navigate('MainStack');
+        }
+      })
+      .catch(rejectedValueOrSerializedError => {
+        return rejectedValueOrSerializedError;
+      });
   };
 
   return (
@@ -91,7 +117,7 @@ const Signup = ({navigation}) => {
               buttonLabel="CREATE ACCOUNT"
               buttonBgColor={Colors.primaryRedColor}
               buttonTextColor={Colors.whiteColor}
-              onPressHandler={() => {}}
+              onPressHandler={handleSubmit(createAccountButtonHandler)}
             />
 
             <View style={Styles.navigateToLoginTextContainer}>

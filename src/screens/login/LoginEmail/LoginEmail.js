@@ -6,14 +6,20 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+
+import {useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
+import Config from 'react-native-config';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images, InputRules} from '@app/constants';
 import {heightToDp} from '@app/utils';
 import {Styles} from '../LoginStyles';
+import {authUser} from '@app/redux/slices/auth/authSlice';
 
 const LoginEmail = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
@@ -27,7 +33,27 @@ const LoginEmail = ({navigation}) => {
   });
 
   const createAccountButtonHandler = accountData => {
-    navigation.navigate('HomeStack', {screen: 'HomeScreen'});
+    const {email, password} = accountData;
+    dispatch(
+      authUser({
+        userDetails: {
+          user: {
+            email,
+            password,
+          },
+        },
+        loginURL: 'login',
+      }),
+    )
+      .unwrap()
+      .then(originalPromiseResult => {
+        if (originalPromiseResult?.status === 200) {
+          navigation.navigate('MainStack');
+        }
+      })
+      .catch(rejectedValueOrSerializedError => {
+        return rejectedValueOrSerializedError;
+      });
   };
 
   return (
