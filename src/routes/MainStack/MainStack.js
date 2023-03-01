@@ -11,13 +11,15 @@ import {
   WorkoutScreen,
   ExerciseScreen,
   ResultScreen,
+  ProfileScreen,
+  WorkoutHistoryScreen,
 } from '@app/screens';
 import {heightToDp, widthToDp} from '@app/utils';
-import {Styles} from './HomeStackStyles';
+import {Styles} from './MainStackStyles';
 
 const Stack = createStackNavigator();
 
-const HomeStack = ({navigation}) => {
+const MainStack = ({navigation}) => {
   const userName = useSelector(state => state?.auth?.userInfo?.name);
 
   return (
@@ -61,8 +63,15 @@ const HomeStack = ({navigation}) => {
       <Stack.Screen name="ExerciseScreen" component={ExerciseScreen} />
 
       <Stack.Screen name="ResultScreen" component={ResultScreen} />
+
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+
+      <Stack.Screen
+        name="WorkoutHistoryScreen"
+        component={WorkoutHistoryScreen}
+      />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default MainStack;

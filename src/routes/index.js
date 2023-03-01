@@ -1,4 +1,4 @@
 import AuthStack from './AuthStack';
-import MainStack from './MainStack';
 
-export {MainStack, AuthStack};
+export {AuthStack};
+export * from './MainStack';
