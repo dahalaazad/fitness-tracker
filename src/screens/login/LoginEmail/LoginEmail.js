@@ -48,7 +48,7 @@ const LoginEmail = ({navigation}) => {
       .unwrap()
       .then(originalPromiseResult => {
         if (originalPromiseResult?.status === 200) {
-          navigation.navigate('HomeStack');
+          navigation.navigate('MainStack');
         }
       })
       .catch(rejectedValueOrSerializedError => {
