@@ -10,15 +10,15 @@ const initialState = {
   userInfo: {},
 };
 
-export const signupWithEmail = createAsyncThunk(
-  'auth/signupWithEmail',
-  async (userSignUpInfo, {rejectWithValue}) => {
+export const authUser = createAsyncThunk(
+  'auth/authUser',
+  async (userInfoContainer, {rejectWithValue}) => {
     try {
-      const signUpResponse = await axios.post(
-        `${Config.API_URL}/signup`,
-        userSignUpInfo,
+      const authResponse = await axios.post(
+        `${Config.API_URL}/${userInfoContainer?.loginURL}`,
+        userInfoContainer?.userDetails,
       );
-      return signUpResponse;
+      return authResponse;
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -30,16 +30,16 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(signupWithEmail.pending, state => {
+      .addCase(authUser.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(signupWithEmail.fulfilled, (state, {payload}) => {
+      .addCase(authUser.fulfilled, (state, {payload}) => {
         state.loading = false;
         state.isLoggedIn = true;
-        state.userInfo = payload?.data;
+        state.userInfo = payload?.data?.data;
       })
-      .addCase(signupWithEmail.rejected, (state, {payload}) => {
+      .addCase(authUser.rejected, (state, {payload}) => {
         state.loading = false;
         state.error = payload;
       });
