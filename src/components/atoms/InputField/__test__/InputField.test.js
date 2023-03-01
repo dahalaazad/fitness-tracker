@@ -1,4 +1,4 @@
-import {render, fireEvent} from '@testing-library/react-native';
+import {render, fireEvent, screen} from '@testing-library/react-native';
 import {InputField} from '@app/components';
 import {useForm} from 'react-hook-form';
 
@@ -30,22 +30,9 @@ describe('Input Field Tests', () => {
     />;
   });
 
-  // it('Should apply the value when changing text', () => {
-
-  //   const testIdName = 'inputFieldTest';
-  //   const {getByTestId} = render(<InputField />);
-  //   const input = getByTestId(testIdName);
-  //   fireEvent.changeText(input, 'aazad.dahal@gurzu.net');
-  //   expect(input.props.value).toBe('aazad.dahal@gurzu.net');
-  // });
+  it('Should apply the value when changing text', () => {
+    render(<InputFieldTest />);
+    const textInputControllertextinput = screen.getByTestId('inputFieldTest');
+    fireEvent(textInputControllertextinput, 'onChangeText', 'aazad');
+  });
 });
-
-// render(<Component errMsg="Error Occurred"></Component>);
-// const textInputControllertextinput = screen.getByTestId(
-//   'textInputController-text-input',
-// );
-// fireEvent(textInputControllertextinput, 'onFocus');
-// fireEvent(textInputControllertextinput, 'onChangeText', 'adb');
-// fireEvent(textInputControllertextinput, 'onBlur');
-
-// expect(textInputControllertextinput.props.value).toBe('adb');
