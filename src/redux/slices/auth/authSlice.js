@@ -1,5 +1,4 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import axios from 'axios';
 import Config from 'react-native-config';
 
 import {mercuryAPI} from '@app/utils';
@@ -29,7 +28,17 @@ export const authUser = createAsyncThunk(
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    setLoggedIn: (state, action) => {
+      return {...state, isLoggedIn: action.payload};
+    },
+    setToken: (state, action) => {
+      return {...state, userToken: action.payload};
+    },
+    setUserInfo: (state, action) => {
+      return {...state, userInfo: action.payload};
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(authUser.pending, state => {
@@ -47,5 +56,7 @@ export const authSlice = createSlice({
       });
   },
 });
+
+export const {setLoggedIn, setToken, setUserInfo} = authSlice.actions;
 
 export default authSlice.reducer;
