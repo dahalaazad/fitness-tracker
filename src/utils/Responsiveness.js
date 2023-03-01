@@ -18,11 +18,11 @@ const heightPercentToDp = value => {
 };
 
 const widthToDp = value => {
-  return widthPercentToDp(`${(value / 350) * 100}%`);
+  return widthPercentToDp(`${(value / 375) * 100}%`);
 };
 
 const heightToDp = value => {
-  return heightPercentToDp(`${(value / 680) * 100}%`);
+  return heightPercentToDp(`${(value / 819) * 100}%`);
 };
 
 export {

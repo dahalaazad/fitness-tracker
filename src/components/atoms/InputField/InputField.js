@@ -1,4 +1,4 @@
-import {View, TextInput, Text} from 'react-native';
+import {View, TextInput, Text, Image} from 'react-native';
 import {useState} from 'react';
 import {Controller} from 'react-hook-form';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,14 +9,13 @@ import {widthToDp} from '@app/utils';
 import {Styles} from './InputFieldStyles';
 
 const InputField = ({
-  testID,
   control,
-  errors,
-  rules,
-  inputName,
+  errors = {},
+  rules = {},
+  inputName = '',
   secureTextEntry = false,
-  placeholderText,
-  iconName,
+  placeholderText = '',
+  iconName = '',
   ...props
 }) => {
   const inputFieldIcon = name => {
@@ -46,22 +45,18 @@ const InputField = ({
 
             <TextInput
               style={Styles.textInputStyle}
+              testID="inputFieldTest"
               value={value}
               placeholder={placeholderText}
               placeholderTextColor={Colors.whiteColor}
               secureTextEntry={secureTextEntry}
               onChangeText={onChange}
-              testID="inputFieldTest"
               {...props}
             />
           </View>
         )}
       />
-      {errors && (
-        <Text testID={testID} style={Styles.errorText}>
-          {errors?.message}
-        </Text>
-      )}
+      {errors && <Text style={Styles.errorText}>{errors?.message}</Text>}
     </>
   );
 };
