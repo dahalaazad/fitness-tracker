@@ -2,6 +2,8 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import axios from 'axios';
 import Config from 'react-native-config';
 
+import {mercuryAPI} from '@app/utils';
+
 const initialState = {
   isLoggedIn: false,
   loading: false,
@@ -14,8 +16,8 @@ export const authUser = createAsyncThunk(
   'auth/authUser',
   async (userInfoContainer, {rejectWithValue}) => {
     try {
-      const authResponse = await axios.post(
-        `${Config.API_URL}/${userInfoContainer?.loginURL}`,
+      const authResponse = await mercuryAPI.post(
+        `${userInfoContainer?.loginURL}`,
         userInfoContainer?.userDetails,
       );
       return authResponse;
