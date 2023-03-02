@@ -8,7 +8,10 @@ const UserImageIcon = ({navigation}) => {
     <TouchableOpacity
       style={Styles.headerImageContainer}
       onPress={() => navigation.navigate('ProfileScreen')}>
-      <Image style={Styles.headerImage} source={Images.userImageIcon} />
+      <Image
+        style={Styles.headerImage}
+        source={Images.profilePlaceholderIcon}
+      />
     </TouchableOpacity>
   );
 };
