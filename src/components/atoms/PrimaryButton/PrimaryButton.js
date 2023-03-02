@@ -3,6 +3,8 @@ import {Button} from 'react-native-paper';
 
 import {AppleLogo, FbLogo, GoogleLogo} from '@app/assets/svg';
 import {heightToDp, widthToDp} from '@app/utils';
+import {Colors} from '@app/constants';
+import {Styles} from './PrimaryButtonStyles';
 
 const PrimaryButton = ({
   buttonLabel,
@@ -16,6 +18,7 @@ const PrimaryButton = ({
   buttonIconColor,
   buttonRadius = widthToDp(40),
   isOutlined,
+  disabled = false,
   testID,
 }) => {
   const loginIcon = buttonIconName => {
@@ -32,19 +35,24 @@ const PrimaryButton = ({
   };
   return (
     <Button
-      buttonColor={buttonBgColor}
-      textColor={buttonTextColor}
       style={{
         borderRadius: buttonRadius,
         justifyContent: 'flex-start',
+        backgroundColor: !disabled
+          ? buttonBgColor
+          : Colors.disabledButtonBgColor,
       }}
-      labelStyle={{fontFamily: 'Poppins'}}
+      labelStyle={[
+        Styles.buttonLabelStyle,
+        {color: buttonTextColor ? buttonTextColor : Colors.whiteColor},
+      ]}
       contentStyle={{
         paddingVertical: heightToDp(6),
       }}
       icon={({size, color}) => loginIcon(buttonIconName)}
       testID={testID}
-      onPress={onPressHandler}>
+      onPress={onPressHandler}
+      disabled={disabled}>
       {buttonLabel}
     </Button>
   );
