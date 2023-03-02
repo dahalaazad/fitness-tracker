@@ -16,6 +16,7 @@ const InputField = ({
   secureTextEntry = false,
   placeholderText = '',
   iconName = '',
+  inputOutline = false,
   ...props
 }) => {
   const inputFieldIcon = name => {
@@ -40,7 +41,13 @@ const InputField = ({
         rules={rules}
         name={inputName}
         render={({field: {onChange, onBlur, value}}) => (
-          <View style={Styles.inputMainContainer}>
+          <View
+            style={[
+              Styles.inputMainContainer,
+              inputOutline
+                ? {borderWidth: 1, borderColor: Colors.inputFieldOutlineColor}
+                : null,
+            ]}>
             <View style={Styles.iconContainer}>{inputFieldIcon(iconName)}</View>
 
             <TextInput
