@@ -4,7 +4,9 @@ import {useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {UserImageIcon} from '@app/components';
-import {Colors} from '@app/constants';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import {Colors, Images} from '@app/constants';
 import {
   HomeScreen,
   AddWorkoutScreen,
@@ -25,8 +27,20 @@ const MainStack = ({navigation}) => {
   return (
     <Stack.Navigator
       screenOptions={{
+        headerBackgroundContainerStyle: {
+          justifyContent: 'center',
+          alignContent: 'center',
+          backgroundColor: Colors.whiteColor,
+        },
+
         headerTitleStyle: {color: Colors.whiteColor},
-        headerStyle: {backgroundColor: Colors.primaryRedColor},
+        headerStyle: {
+          backgroundColor: Colors.primaryRedColor,
+          height: heightToDp(90),
+          borderBottomLeftRadius: widthToDp(32),
+          borderBottomRightRadius: widthToDp(32),
+        },
+        headerLeft: () => null,
       }}>
       <Stack.Screen
         name="HomeScreen"
@@ -47,16 +61,40 @@ const MainStack = ({navigation}) => {
           headerTitleContainerStyle: {
             paddingLeft: widthToDp(15),
           },
-          headerBackgroundContainerStyle: {
-            backgroundColor: Colors.whiteColor,
-          },
 
           headerLeft: () => null,
           headerRight: () => <UserImageIcon navigation={navigation} />,
         }}
       />
 
-      <Stack.Screen name="AddWorkoutScreen" component={AddWorkoutScreen} />
+      <Stack.Screen
+        name="AddWorkoutScreen"
+        component={AddWorkoutScreen}
+        options={{
+          title: 'Add Workout',
+          headerTitleAlign: 'center',
+          headerTitleContainerStyle: {
+            paddingTop: heightToDp(20),
+          },
+          headerTitleStyle: {
+            fontFamily: 'Poppins',
+            fontSize: widthToDp(20),
+            fontWeight: '500',
+            color: Colors.whiteColor,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              style={{paddingLeft: widthToDp(25), paddingTop: heightToDp(20)}}
+              onPress={() => navigation.navigate('HomeScreen')}>
+              <Ionicons
+                name="ios-chevron-back"
+                size={35}
+                color={Colors.whiteColor}
+              />
+            </TouchableOpacity>
+          ),
+        }}
+      />
 
       <Stack.Screen name="WorkoutScreen" component={WorkoutScreen} />
 
