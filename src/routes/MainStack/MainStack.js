@@ -58,7 +58,11 @@ const MainStack = ({navigation}) => {
           },
 
           headerLeft: () => null,
-          headerRight: () => <UserImageIcon navigation={navigation} />,
+          headerRight: () => (
+            <View style={{marginRight: widthToDp(30)}}>
+              <UserImageIcon navigation={navigation} />
+            </View>
+          ),
         }}
       />
 
