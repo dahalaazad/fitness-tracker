@@ -17,6 +17,10 @@ const PrimaryButton = ({
   buttonIconSize,
   buttonIconColor,
   buttonRadius = widthToDp(40),
+  borderColor = 'transparent',
+  borderWidth = widthToDp(1),
+  contentVerticalPadding = heightToDp(6),
+  contentHorizontalPadding = widthToDp(0),
   isOutlined,
   disabled = false,
   testID,
@@ -36,6 +40,8 @@ const PrimaryButton = ({
   return (
     <Button
       style={{
+        borderWidth,
+        borderColor,
         borderRadius: buttonRadius,
         justifyContent: 'flex-start',
         backgroundColor: !disabled
@@ -44,10 +50,13 @@ const PrimaryButton = ({
       }}
       labelStyle={[
         Styles.buttonLabelStyle,
-        {color: buttonTextColor ? buttonTextColor : Colors.whiteColor},
+        {
+          color: buttonTextColor ? buttonTextColor : Colors.whiteColor,
+        },
       ]}
       contentStyle={{
-        paddingVertical: heightToDp(6),
+        paddingVertical: contentVerticalPadding,
+        paddingHorizontal: contentHorizontalPadding,
       }}
       icon={({size, color}) => loginIcon(buttonIconName)}
       testID={testID}
