@@ -1,7 +1,9 @@
-import {View, TextInput, Text, Image} from 'react-native';
+import {View, TextInput, Text, Image, TouchableOpacity} from 'react-native';
 import {useState} from 'react';
+
 import {Controller} from 'react-hook-form';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
 
 import {EmailIcon, PWIcon} from '@app/assets/svg';
 import {Colors} from '@app/constants';
@@ -17,6 +19,8 @@ const InputField = ({
   placeholderText = '',
   iconName = '',
   inputOutline = false,
+  bgColor = Colors.inputBackgroundWhite,
+  inputFieldOutlineColor = '',
   ...props
 }) => {
   const inputFieldIcon = name => {
@@ -29,6 +33,7 @@ const InputField = ({
         return (
           <Ionicons name="person-outline" color={Colors.whiteColor} size={22} />
         );
+
       default:
         return null;
     }
@@ -45,10 +50,16 @@ const InputField = ({
             style={[
               Styles.inputMainContainer,
               inputOutline
-                ? {borderWidth: 1, borderColor: Colors.inputFieldOutlineColor}
+                ? {
+                    borderWidth: 1,
+                    borderColor: Colors.inputFieldOutlineColor,
+                  }
                 : null,
+              {backgroundColor: bgColor},
             ]}>
-            <View style={Styles.iconContainer}>{inputFieldIcon(iconName)}</View>
+            <View style={Styles.iconLeftContainer}>
+              {inputFieldIcon(iconName)}
+            </View>
 
             <TextInput
               style={Styles.textInputStyle}
@@ -60,6 +71,12 @@ const InputField = ({
               onChangeText={onChange}
               {...props}
             />
+
+            {iconName === 'clock' ? (
+              <TouchableOpacity style={Styles.iconRightContainer}>
+                <Feather name="clock" color={Colors.clockIconColor} size={22} />
+              </TouchableOpacity>
+            ) : null}
           </View>
         )}
       />
