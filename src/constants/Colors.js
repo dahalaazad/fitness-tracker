@@ -24,4 +24,6 @@ export const Colors = {
   disabledButtonBgColor: 'rgba(192, 57, 46, 0.6)',
   inputFieldOutlineColor: '#D9E3EE',
   clockIconColor: '#717982',
+  boxShadowColor: 'rgba(51, 51, 51,1)',
+  cardTextColor: '#202020',
 };
