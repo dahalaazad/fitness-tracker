@@ -19,6 +19,7 @@ const AddExerciseModal = () => {
       restPeriod: '',
     },
   });
+
   return (
     <View style={Styles.container}>
       <Text style={Styles.titleText}>Add Exercise</Text>
