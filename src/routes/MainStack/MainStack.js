@@ -3,8 +3,11 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {UserImageIcon} from '@app/components';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {
+  HeaderBackIcon,
+  HomeScreenHeaderItems,
+  UserImageIcon,
+} from '@app/components';
 
 import {Colors, Images} from '@app/constants';
 import {
@@ -46,15 +49,7 @@ const MainStack = ({navigation}) => {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          headerTitle: () => (
-            <View>
-              <Text style={Styles.headerTextTop}>Good Morning,</Text>
-
-              <Text style={Styles.headerTextBottom}>{`${
-                userName || 'User Name'
-              }`}</Text>
-            </View>
-          ),
+          headerTitle: () => <HomeScreenHeaderItems userName={userName} />,
 
           headerStyle: Styles.homeScreenHeaderStyle,
 
@@ -71,7 +66,19 @@ const MainStack = ({navigation}) => {
         name="AddWorkoutScreen"
         component={AddWorkoutScreen}
         options={{
-          headerShown: false,
+          title: 'Add Workout',
+
+          headerTitleStyle: {
+            fontFamily: 'Poppins',
+            fontSize: widthToDp(20),
+            fontWeight: '500',
+            color: Colors.whiteColor,
+            paddingTop: heightToDp(20),
+          },
+          headerTitleAlign: 'center',
+          headerLeft: () => (
+            <HeaderBackIcon navigation={navigation} navigateTo="HomeScreen" />
+          ),
         }}
       />
 
