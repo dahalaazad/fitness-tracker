@@ -70,11 +70,11 @@ const InputField = ({
               {...props}
             />
 
-            {iconName === 'clock' ? (
+            {iconName === 'clock' && (
               <TouchableOpacity style={Styles.iconRightContainer}>
                 <Feather name="clock" color={Colors.clockIconColor} size={22} />
               </TouchableOpacity>
-            ) : null}
+            )}
           </View>
         )}
       />
