@@ -35,7 +35,7 @@ const MainStack = ({navigation}) => {
           alignContent: 'center',
           backgroundColor: Colors.whiteColor,
         },
-
+        headerTitleAlign: 'center',
         headerTitleStyle: {color: Colors.whiteColor},
         headerStyle: {
           backgroundColor: Colors.primaryRedColor,
@@ -52,7 +52,7 @@ const MainStack = ({navigation}) => {
           headerTitle: () => <HomeScreenHeaderItems userName={userName} />,
 
           headerStyle: Styles.homeScreenHeaderStyle,
-
+          headerTitleAlign: 'left',
           headerTitleContainerStyle: {
             paddingLeft: widthToDp(15),
           },
@@ -75,7 +75,6 @@ const MainStack = ({navigation}) => {
             color: Colors.whiteColor,
             paddingTop: heightToDp(20),
           },
-          headerTitleAlign: 'center',
           headerLeft: () => (
             <HeaderBackIcon navigation={navigation} navigateTo="HomeScreen" />
           ),
@@ -88,7 +87,11 @@ const MainStack = ({navigation}) => {
 
       <Stack.Screen name="ResultScreen" component={ResultScreen} />
 
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{title: 'Profile'}}
+      />
 
       <Stack.Screen
         name="WorkoutHistoryScreen"
