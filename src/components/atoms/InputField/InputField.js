@@ -49,12 +49,10 @@ const InputField = ({
           <View
             style={[
               Styles.inputMainContainer,
-              inputOutline
-                ? {
-                    borderWidth: 1,
-                    borderColor: Colors.inputFieldOutlineColor,
-                  }
-                : null,
+              inputOutline && {
+                borderWidth: 1,
+                borderColor: Colors.inputFieldOutlineColor,
+              },
               {backgroundColor: bgColor},
             ]}>
             <View style={Styles.iconLeftContainer}>
