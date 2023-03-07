@@ -71,28 +71,7 @@ const MainStack = ({navigation}) => {
         name="AddWorkoutScreen"
         component={AddWorkoutScreen}
         options={{
-          title: 'Add Workout',
-          headerTitleAlign: 'center',
-          headerTitleContainerStyle: {
-            paddingTop: heightToDp(20),
-          },
-          headerTitleStyle: {
-            fontFamily: 'Poppins',
-            fontSize: widthToDp(20),
-            fontWeight: '500',
-            color: Colors.whiteColor,
-          },
-          headerLeft: () => (
-            <TouchableOpacity
-              style={{paddingLeft: widthToDp(25), paddingTop: heightToDp(20)}}
-              onPress={() => navigation.navigate('HomeScreen')}>
-              <Ionicons
-                name="ios-chevron-back"
-                size={35}
-                color={Colors.whiteColor}
-              />
-            </TouchableOpacity>
-          ),
+          headerShown: false,
         }}
       />
 
