@@ -2,12 +2,9 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 
 import {useSelector} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {
-  HeaderBackIcon,
-  HomeScreenHeaderItems,
-  UserImageIcon,
-} from '@app/components';
+import {HomeScreenHeaderItems, UserImageIcon} from '@app/components';
 
 import {Colors, Images} from '@app/constants';
 import {
@@ -43,7 +40,15 @@ const MainStack = ({navigation}) => {
           borderBottomLeftRadius: widthToDp(32),
           borderBottomRightRadius: widthToDp(32),
         },
-        headerLeft: () => null,
+        headerBackImage: () => (
+          <View style={{marginLeft: widthToDp(20), marginTop: heightToDp(20)}}>
+            <Ionicons
+              name="ios-chevron-back"
+              size={35}
+              color={Colors.whiteColor}
+            />
+          </View>
+        ),
       }}>
       <Stack.Screen
         name="HomeScreen"
@@ -56,8 +61,6 @@ const MainStack = ({navigation}) => {
           headerTitleContainerStyle: {
             paddingLeft: widthToDp(15),
           },
-
-          headerLeft: () => null,
           headerRight: () => <UserImageIcon navigation={navigation} />,
         }}
       />
@@ -76,9 +79,6 @@ const MainStack = ({navigation}) => {
             paddingTop: heightToDp(20),
           },
           headerTitleAlign: 'center',
-          headerLeft: () => (
-            <HeaderBackIcon navigation={navigation} navigateTo="HomeScreen" />
-          ),
         }}
       />
 
