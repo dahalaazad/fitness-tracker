@@ -1,5 +1,5 @@
-import {View, TextInput, Text, Image, TouchableOpacity} from 'react-native';
 import {useState} from 'react';
+import {View, TextInput, Text, Image, TouchableOpacity} from 'react-native';
 
 import {Controller} from 'react-hook-form';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -16,6 +16,9 @@ const InputField = ({
   rules = {},
   inputName = '',
   secureTextEntry = false,
+  setSecureTextEntry,
+  isPassword = false,
+  passwordIcon = false,
   placeholderText = '',
   iconName = '',
   inputOutline = false,
@@ -23,7 +26,9 @@ const InputField = ({
   inputFieldOutlineColor = '',
   ...props
 }) => {
-  const inputFieldIcon = name => {
+  const [rightIconName, setRightIconName] = useState('passwordHide');
+
+  const inputFieldLeftIcon = name => {
     switch (name) {
       case 'email':
         return <EmailIcon />;
@@ -33,9 +38,30 @@ const InputField = ({
         return (
           <Ionicons name="person-outline" color={Colors.whiteColor} size={22} />
         );
-
       default:
         return null;
+    }
+  };
+
+  const inputFieldRightIcon = name => {
+    switch (name) {
+      case 'clock':
+        return <Feather name="clock" color={Colors.clockIconColor} size={22} />;
+      case 'passwordShow':
+        return <Feather name="eye" color={Colors.blackColor} size={22} />;
+      case 'passwordHide':
+        return <Feather name="eye-off" color={Colors.blackColor} size={22} />;
+      default:
+        return null;
+    }
+  };
+
+  const passwordToggle = () => {
+    setSecureTextEntry(!secureTextEntry);
+    if (rightIconName === 'passwordHide') {
+      setRightIconName('passwordShow');
+    } else {
+      setRightIconName('passwordHide');
     }
   };
 
@@ -56,7 +82,7 @@ const InputField = ({
               {backgroundColor: bgColor},
             ]}>
             <View style={Styles.iconLeftContainer}>
-              {inputFieldIcon(iconName)}
+              {inputFieldLeftIcon(iconName)}
             </View>
 
             <TextInput
@@ -70,9 +96,11 @@ const InputField = ({
               {...props}
             />
 
-            {iconName === 'clock' && (
-              <TouchableOpacity style={Styles.iconRightContainer}>
-                <Feather name="clock" color={Colors.clockIconColor} size={22} />
+            {isPassword && (
+              <TouchableOpacity
+                style={Styles.iconRightContainer}
+                onPress={passwordToggle}>
+                {inputFieldRightIcon(rightIconName)}
               </TouchableOpacity>
             )}
           </View>

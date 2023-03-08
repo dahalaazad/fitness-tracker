@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {
   Text,
   View,
@@ -18,6 +19,8 @@ import {Styles} from '../LoginStyles';
 import {authUser} from '@app/redux/slices/auth/authSlice';
 
 const LoginEmail = ({navigation}) => {
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
+
   const dispatch = useDispatch();
 
   const {
@@ -101,7 +104,9 @@ const LoginEmail = ({navigation}) => {
                 rules={InputRules.password}
                 placeholderText="Password"
                 iconName="password"
-                secureTextEntry={true}
+                isPassword={true}
+                secureTextEntry={secureTextEntry}
+                setSecureTextEntry={setSecureTextEntry}
               />
             </View>
 
