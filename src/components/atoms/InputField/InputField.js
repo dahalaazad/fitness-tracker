@@ -49,12 +49,10 @@ const InputField = ({
           <View
             style={[
               Styles.inputMainContainer,
-              inputOutline
-                ? {
-                    borderWidth: 1,
-                    borderColor: Colors.inputFieldOutlineColor,
-                  }
-                : null,
+              inputOutline && {
+                borderWidth: 1,
+                borderColor: Colors.inputFieldOutlineColor,
+              },
               {backgroundColor: bgColor},
             ]}>
             <View style={Styles.iconLeftContainer}>
@@ -72,11 +70,11 @@ const InputField = ({
               {...props}
             />
 
-            {iconName === 'clock' ? (
+            {iconName === 'clock' && (
               <TouchableOpacity style={Styles.iconRightContainer}>
                 <Feather name="clock" color={Colors.clockIconColor} size={22} />
               </TouchableOpacity>
-            ) : null}
+            )}
           </View>
         )}
       />
