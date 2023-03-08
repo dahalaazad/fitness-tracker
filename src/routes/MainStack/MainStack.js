@@ -51,7 +51,6 @@ const MainStack = ({navigation}) => {
               padding: widthToDp(10),
               marginLeft: widthToDp(10),
               marginTop: heightToDp(20),
-              // backgroundColor: Colors.blackColor,
             }}>
             <Ionicons
               name="ios-chevron-back"
