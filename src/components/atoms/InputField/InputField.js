@@ -1,7 +1,9 @@
-import {View, TextInput, Text, Image} from 'react-native';
+import {View, TextInput, Text, Image, TouchableOpacity} from 'react-native';
 import {useState} from 'react';
+
 import {Controller} from 'react-hook-form';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
 
 import {EmailIcon, PWIcon} from '@app/assets/svg';
 import {Colors} from '@app/constants';
@@ -16,6 +18,9 @@ const InputField = ({
   secureTextEntry = false,
   placeholderText = '',
   iconName = '',
+  inputOutline = false,
+  bgColor = Colors.inputBackgroundWhite,
+  inputFieldOutlineColor = '',
   ...props
 }) => {
   const inputFieldIcon = name => {
@@ -28,6 +33,7 @@ const InputField = ({
         return (
           <Ionicons name="person-outline" color={Colors.whiteColor} size={22} />
         );
+
       default:
         return null;
     }
@@ -40,8 +46,18 @@ const InputField = ({
         rules={rules}
         name={inputName}
         render={({field: {onChange, onBlur, value}}) => (
-          <View style={Styles.inputMainContainer}>
-            <View style={Styles.iconContainer}>{inputFieldIcon(iconName)}</View>
+          <View
+            style={[
+              Styles.inputMainContainer,
+              inputOutline && {
+                borderWidth: 1,
+                borderColor: Colors.inputFieldOutlineColor,
+              },
+              {backgroundColor: bgColor},
+            ]}>
+            <View style={Styles.iconLeftContainer}>
+              {inputFieldIcon(iconName)}
+            </View>
 
             <TextInput
               style={Styles.textInputStyle}
@@ -53,6 +69,12 @@ const InputField = ({
               onChangeText={onChange}
               {...props}
             />
+
+            {iconName === 'clock' && (
+              <TouchableOpacity style={Styles.iconRightContainer}>
+                <Feather name="clock" color={Colors.clockIconColor} size={22} />
+              </TouchableOpacity>
+            )}
           </View>
         )}
       />

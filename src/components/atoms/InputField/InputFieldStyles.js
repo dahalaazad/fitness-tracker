@@ -5,18 +5,18 @@ import {heightToDp, widthToDp} from '@app/utils';
 
 export const Styles = StyleSheet.create({
   inputMainContainer: {
-    // flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
     borderRadius: widthToDp(40),
-    backgroundColor: Colors.inputBackgroundWhite,
     paddingVertical: heightToDp(3),
   },
-  iconContainer: {
-    // flex: 1,
+  iconLeftContainer: {
     paddingLeft: widthToDp(18),
     paddingRight: widthToDp(5),
+  },
+  iconRightContainer: {
+    paddingRight: widthToDp(18),
   },
   textInputStyle: {
     flex: 1,

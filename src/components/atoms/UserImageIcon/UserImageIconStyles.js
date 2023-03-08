@@ -5,7 +5,7 @@ import {height, heightToDp, width, widthToDp} from '@app/utils';
 
 export const Styles = StyleSheet.create({
   headerImageContainer: {
-    borderRadius: widthToDp(25),
+    borderRadius: widthToDp(20),
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: widthToDp(30),
@@ -14,7 +14,7 @@ export const Styles = StyleSheet.create({
   headerImage: {
     borderRadius: widthToDp(25),
     width: widthToDp(40),
-    height: heightToDp(40),
+    height: widthToDp(40),
     overflow: 'hidden',
   },
 });

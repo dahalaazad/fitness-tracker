@@ -21,4 +21,7 @@ export const Colors = {
   buttonBackgroundWhite: 'rgba(254, 254, 254, 0.9)',
   inputBackgroundWhite: 'rgba(255, 255, 255, 0.6)',
   loginOverlayColor: 'rgba(51, 51, 51, 0.3)',
+  disabledButtonBgColor: 'rgba(192, 57, 46, 0.6)',
+  inputFieldOutlineColor: '#D9E3EE',
+  clockIconColor: '#717982',
 };
