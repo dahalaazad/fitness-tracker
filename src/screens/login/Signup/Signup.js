@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {
   Text,
   ScrollView,
@@ -18,6 +19,8 @@ import {Styles} from '../LoginStyles';
 import {authUser} from '@app/redux/slices/auth/authSlice';
 
 const Signup = ({navigation}) => {
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
+
   const dispatch = useDispatch();
   const loading = useSelector(state => state?.auth?.loading);
 
@@ -117,7 +120,9 @@ const Signup = ({navigation}) => {
                 rules={InputRules.password}
                 placeholderText="Password"
                 iconName="password"
-                secureTextEntry={true}
+                isPassword={true}
+                secureTextEntry={secureTextEntry}
+                setSecureTextEntry={setSecureTextEntry}
               />
             </View>
 
