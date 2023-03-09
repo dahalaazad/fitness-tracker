@@ -4,5 +4,14 @@ import AppleLogo from './apple-logo.svg';
 import EmailIcon from './email-icon.svg';
 import PWIcon from './pw-icon.svg';
 import SkippingIcon from './skipping-icon.svg';
+import SkipNextIcon from './skip-icon.svg';
 
-export {GoogleLogo, FbLogo, AppleLogo, EmailIcon, PWIcon, SkippingIcon};
+export {
+  GoogleLogo,
+  FbLogo,
+  AppleLogo,
+  EmailIcon,
+  PWIcon,
+  SkippingIcon,
+  SkipNextIcon,
+};
