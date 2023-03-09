@@ -7,13 +7,23 @@ import {
 } from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useState} from 'react';
+
+import CountDown from 'react-native-countdown-component';
 
 import {SkipNextIcon} from '@app/assets/svg';
 import {Colors, Images} from '@app/constants';
 import {widthToDp} from '@app/utils';
 import {Styles} from './ExerciseScreenStyles';
+import {ClockTimer} from '@app/components';
 
 const ExerciseScreen = ({navigation}) => {
+  const [runTimer, setRunTimer] = useState(false);
+
+  const timerToggle = () => {
+    setRunTimer(!runTimer);
+  };
+
   return (
     <View style={Styles.container}>
       <View style={Styles.upperHalfContainer}>
@@ -45,16 +55,25 @@ const ExerciseScreen = ({navigation}) => {
 
       <View style={Styles.timerContainer}>
         <View style={Styles.timerBorderContainerStyle}>
-          <TouchableOpacity>
-            <ImageBackground
-              source={Images.timerRedBg}
-              resizeMode="cover"
-              style={Styles.timerStyle}>
-              <Text style={Styles.timerTopText}>Work</Text>
+          <ImageBackground
+            source={Images.timerRedBg}
+            resizeMode="cover"
+            style={Styles.timerStyle}>
+            <Text style={Styles.timerTopText}>Work</Text>
 
-              <Text style={Styles.timerBottomText}>05:00</Text>
-            </ImageBackground>
-          </TouchableOpacity>
+            <CountDown
+              until={300}
+              onFinish={() => alert('Exercise Completed')}
+              timeToShow={['M', 'S']}
+              size={20}
+              digitStyle={Styles.timerCountdownStyle}
+              digitTxtStyle={Styles.timerBottomText}
+              timeLabels={{m: null, s: null}}
+              showSeparator
+              separatorStyle={{color: Colors.whiteColor}}
+              running={runTimer}
+            />
+          </ImageBackground>
         </View>
       </View>
 
@@ -62,8 +81,14 @@ const ExerciseScreen = ({navigation}) => {
         <View style={{flex: 1}} />
 
         <View style={{flex: 1, alignItems: 'center'}}>
-          <TouchableOpacity style={Styles.playButtonStyle}>
-            <Ionicons name="play" color={Colors.whiteColor} size={22} />
+          <TouchableOpacity
+            style={Styles.playButtonStyle}
+            onPress={timerToggle}>
+            <Ionicons
+              name={runTimer ? 'pause' : 'play'}
+              color={Colors.whiteColor}
+              size={22}
+            />
           </TouchableOpacity>
         </View>
 

@@ -58,6 +58,9 @@ export const Styles = StyleSheet.create({
     height: widthToDp(210),
     width: widthToDp(210),
   },
+  timerCountdownStyle: {
+    backgroundColor: 'transparent',
+  },
   timerTopText: {
     color: Colors.whiteColor,
     fontFamily: 'Poppins',
