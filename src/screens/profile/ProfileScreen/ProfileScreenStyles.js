@@ -43,7 +43,7 @@ export const Styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: heightToDp(48),
   },
-  exerciseCardContainer: {
+  cardComponentContainer: {
     marginLeft: widthToDp(18),
     marginRight: widthToDp(16),
   },

@@ -5,7 +5,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 import {logoutUser} from '@app/redux/slices/auth/authSlice';
 import {Colors} from '@app/constants';
-import {ExerciseCard, PrimaryButton, UserImageIcon} from '@app/components';
+import {CardComponent, PrimaryButton, UserImageIcon} from '@app/components';
 import {heightToDp, widthToDp} from '@app/utils';
 import {Styles} from './ProfileScreenStyles';
 
@@ -62,16 +62,16 @@ const ProfileScreen = ({navigation}) => {
             contentHorizontalPadding={widthToDp(0)}
           />
         </View>
-        <View style={Styles.exerciseCardContainer}>
-          <ExerciseCard
+        <View style={Styles.cardComponentContainer}>
+          <CardComponent
             cardName="workoutHistory"
             cardText="View Workout History"
             onCardPress={() => navigation.navigate('WorkoutHistoryScreen')}
           />
         </View>
 
-        <View style={Styles.exerciseCardContainer}>
-          <ExerciseCard
+        <View style={Styles.cardComponentContainer}>
+          <CardComponent
             cardName="logout"
             cardText="Logout"
             onCardPress={logout}
@@ -80,7 +80,7 @@ const ProfileScreen = ({navigation}) => {
       </View>
 
       <View style={Styles.bottomContainer}>
-        <ExerciseCard cardName="wixx" cardText="WIXX" />
+        <CardComponent cardName="wixx" cardText="WIXX" />
       </View>
     </View>
   );

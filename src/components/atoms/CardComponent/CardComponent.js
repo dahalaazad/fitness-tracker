@@ -2,9 +2,9 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {AddWorkoutIcon, CrownIcon, LogoutIcon, WixxIcon} from '@app/assets/svg';
 import {heightToDp, widthToDp} from '@app/utils';
 import {Colors} from '@app/constants';
-import {Styles} from './ExerciseCardStyles';
+import {Styles} from './CardComponentStyles';
 
-const ExerciseCard = ({cardName, cardText, onCardPress}) => {
+const CardComponent = ({cardName, cardText, onCardPress}) => {
   const cardIcon = cardIconName => {
     switch (cardIconName) {
       case 'workoutHistory':
@@ -32,4 +32,4 @@ const ExerciseCard = ({cardName, cardText, onCardPress}) => {
   );
 };
 
-export default ExerciseCard;
+export default CardComponent;
