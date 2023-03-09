@@ -26,8 +26,6 @@ const InputField = ({
   inputFieldOutlineColor = '',
   ...props
 }) => {
-  const [rightIconName, setRightIconName] = useState('passwordHide');
-
   const inputFieldLeftIcon = name => {
     switch (name) {
       case 'email':
@@ -58,11 +56,6 @@ const InputField = ({
 
   const passwordToggle = () => {
     setSecureTextEntry(!secureTextEntry);
-    if (rightIconName === 'passwordHide') {
-      setRightIconName('passwordShow');
-    } else {
-      setRightIconName('passwordHide');
-    }
   };
 
   return (
@@ -100,7 +93,9 @@ const InputField = ({
               <TouchableOpacity
                 style={Styles.iconRightContainer}
                 onPress={passwordToggle}>
-                {inputFieldRightIcon(rightIconName)}
+                {inputFieldRightIcon(
+                  secureTextEntry ? 'passwordHide' : 'passwordShow',
+                )}
               </TouchableOpacity>
             )}
           </View>
