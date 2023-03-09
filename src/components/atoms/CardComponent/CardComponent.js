@@ -17,6 +17,7 @@ const CardComponent = ({cardName, cardText, onCardPress}) => {
         return null;
     }
   };
+
   return (
     <TouchableOpacity onPress={onCardPress} style={Styles.container}>
       <View style={Styles.secondaryContainer}>

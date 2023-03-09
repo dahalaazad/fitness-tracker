@@ -62,6 +62,7 @@ const ProfileScreen = ({navigation}) => {
             contentHorizontalPadding={widthToDp(0)}
           />
         </View>
+
         <View style={Styles.cardComponentContainer}>
           <CardComponent
             cardName="workoutHistory"
