@@ -6,13 +6,20 @@ import {height, heightToDp, width, widthToDp} from '@app/utils';
 export const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     backgroundColor: Colors.whiteColor,
+  },
+  upperHalfContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingBottom: 34,
   },
   topContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: widthToDp(30),
+    paddingTop: 24,
+    paddingBottom: 32,
   },
   topLineText: {
     fontSize: widthToDp(24),
@@ -30,13 +37,19 @@ export const Styles = StyleSheet.create({
     alignItems: 'center',
   },
   timerContainer: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 30,
+  },
+  timerBorderContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: widthToDp(60),
     height: widthToDp(250),
-    width: widthToDp(260),
+    width: widthToDp(250),
     borderWidth: widthToDp(0.5),
-    borderRadius: widthToDp(125),
+    borderRadius: widthToDp(135),
     borderColor: Colors.primaryRedColor,
   },
   timerStyle: {
@@ -58,8 +71,10 @@ export const Styles = StyleSheet.create({
     fontWeight: '400',
   },
   controlButtonStyle: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginTop: 20,
   },
   playButtonStyle: {
     justifyContent: 'center',
@@ -79,6 +94,7 @@ export const Styles = StyleSheet.create({
     borderRadius: widthToDp(24),
   },
   endWorkoutStyle: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -89,5 +105,6 @@ export const Styles = StyleSheet.create({
     fontSize: widthToDp(14),
     fontWeight: '500',
     padding: heightToDp(25),
+    marginTop: heightToDp(60),
   },
 });

@@ -16,41 +16,46 @@ import {Styles} from './ExerciseScreenStyles';
 const ExerciseScreen = ({navigation}) => {
   return (
     <View style={Styles.container}>
-      <View style={Styles.topContainer}>
-        <View>
-          <Text style={Styles.topLineText}>1/4</Text>
+      <View style={Styles.upperHalfContainer}>
+        <View style={Styles.topContainer}>
+          <View>
+            <Text style={Styles.topLineText}>1/4</Text>
 
-          <Text style={Styles.bottomLineText}>Exercise</Text>
+            <Text style={Styles.bottomLineText}>Exercise</Text>
+          </View>
+
+          <View>
+            <Text style={[Styles.topLineText, {paddingLeft: widthToDp(5)}]}>
+              25:00
+            </Text>
+
+            <Text style={Styles.bottomLineText}>Time Left</Text>
+          </View>
         </View>
 
-        <View>
-          <Text style={[Styles.topLineText, {paddingLeft: widthToDp(5)}]}>
-            25:00
+        <View style={Styles.nextExerciseStyle}>
+          <Text style={Styles.bottomLineText}>Next</Text>
+
+          <Text
+            style={[Styles.bottomLineText, {color: Colors.primaryTextColor}]}>
+            Crunches
           </Text>
-
-          <Text style={Styles.bottomLineText}>Time Left</Text>
         </View>
-      </View>
-
-      <View style={Styles.nextExerciseStyle}>
-        <Text style={Styles.bottomLineText}>Next</Text>
-
-        <Text style={[Styles.bottomLineText, {color: Colors.primaryTextColor}]}>
-          Crunches
-        </Text>
       </View>
 
       <View style={Styles.timerContainer}>
-        <TouchableOpacity>
-          <ImageBackground
-            source={Images.timerRedBg}
-            resizeMode="cover"
-            style={Styles.timerStyle}>
-            <Text style={Styles.timerTopText}>Work</Text>
+        <View style={Styles.timerBorderContainerStyle}>
+          <TouchableOpacity>
+            <ImageBackground
+              source={Images.timerRedBg}
+              resizeMode="cover"
+              style={Styles.timerStyle}>
+              <Text style={Styles.timerTopText}>Work</Text>
 
-            <Text style={Styles.timerBottomText}>05:00</Text>
-          </ImageBackground>
-        </TouchableOpacity>
+              <Text style={Styles.timerBottomText}>05:00</Text>
+            </ImageBackground>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={Styles.controlButtonStyle}>
