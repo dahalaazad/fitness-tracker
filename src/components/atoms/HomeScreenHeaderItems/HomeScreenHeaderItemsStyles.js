@@ -8,13 +8,13 @@ export const Styles = StyleSheet.create({
     fontFamily: 'Poppins',
     fontWeight: '500',
     color: Colors.whiteColor,
-    fontSize: widthToDp(14),
+    fontSize: widthToDp(16),
     paddingBottom: widthToDp(5),
   },
   headerTextBottom: {
     fontFamily: 'Poppins',
     fontWeight: '500',
     color: Colors.whiteColor,
-    fontSize: widthToDp(18),
+    fontSize: widthToDp(20),
   },
 });

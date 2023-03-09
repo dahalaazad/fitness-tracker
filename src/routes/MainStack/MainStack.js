@@ -5,7 +5,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {HomeScreenHeaderItems, UserImageIcon} from '@app/components';
-
 import {Colors, Images} from '@app/constants';
 import {
   HomeScreen,
@@ -32,8 +31,14 @@ const MainStack = ({navigation}) => {
           alignContent: 'center',
           backgroundColor: Colors.whiteColor,
         },
-
-        headerTitleStyle: {color: Colors.whiteColor},
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontFamily: 'Poppins',
+          fontSize: widthToDp(20),
+          fontWeight: '500',
+          color: Colors.whiteColor,
+          paddingTop: heightToDp(20),
+        },
         headerStyle: {
           backgroundColor: Colors.primaryRedColor,
           height: heightToDp(90),
@@ -41,10 +46,15 @@ const MainStack = ({navigation}) => {
           borderBottomRightRadius: widthToDp(32),
         },
         headerBackImage: () => (
-          <View style={{marginLeft: widthToDp(20), marginTop: heightToDp(20)}}>
+          <View
+            style={{
+              padding: widthToDp(10),
+              marginLeft: widthToDp(10),
+              marginTop: heightToDp(20),
+            }}>
             <Ionicons
               name="ios-chevron-back"
-              size={35}
+              size={30}
               color={Colors.whiteColor}
             />
           </View>
@@ -57,11 +67,16 @@ const MainStack = ({navigation}) => {
           headerTitle: () => <HomeScreenHeaderItems userName={userName} />,
 
           headerStyle: Styles.homeScreenHeaderStyle,
-
+          headerTitleAlign: 'left',
           headerTitleContainerStyle: {
             paddingLeft: widthToDp(15),
           },
-          headerRight: () => <UserImageIcon navigation={navigation} />,
+
+          headerRight: () => (
+            <View style={{marginRight: widthToDp(30)}}>
+              <UserImageIcon navigation={navigation} />
+            </View>
+          ),
         }}
       />
 
@@ -70,15 +85,6 @@ const MainStack = ({navigation}) => {
         component={AddWorkoutScreen}
         options={{
           title: 'Add Workout',
-
-          headerTitleStyle: {
-            fontFamily: 'Poppins',
-            fontSize: widthToDp(20),
-            fontWeight: '500',
-            color: Colors.whiteColor,
-            paddingTop: heightToDp(20),
-          },
-          headerTitleAlign: 'center',
         }}
       />
 
@@ -88,7 +94,11 @@ const MainStack = ({navigation}) => {
 
       <Stack.Screen name="ResultScreen" component={ResultScreen} />
 
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{title: 'Profile'}}
+      />
 
       <Stack.Screen
         name="WorkoutHistoryScreen"
