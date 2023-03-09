@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images, InputRules} from '@app/constants';
@@ -18,6 +19,7 @@ import {authUser} from '@app/redux/slices/auth/authSlice';
 
 const Signup = ({navigation}) => {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state?.auth?.loading);
 
   const {
     control,
@@ -59,6 +61,13 @@ const Signup = ({navigation}) => {
 
   return (
     <ScrollView style={Styles.container}>
+      <Spinner
+        visible={loading}
+        color={Colors.whiteColor}
+        overlayColor={Colors.loginOverlayColor}
+        animation="fade"
+      />
+
       <ImageBackground
         source={Images.loginEmailBg}
         style={Styles.imageStyle}
