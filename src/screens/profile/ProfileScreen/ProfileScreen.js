@@ -7,6 +7,7 @@ import {logoutUser} from '@app/redux/slices/auth/authSlice';
 import {Colors} from '@app/constants';
 import {ExerciseCard, PrimaryButton, UserImageIcon} from '@app/components';
 import {heightToDp, widthToDp} from '@app/utils';
+import {Styles} from './ProfileScreenStyles';
 
 const ProfileScreen = ({navigation}) => {
   const {name, email} = useSelector(state => state?.auth?.userInfo);
@@ -27,7 +28,7 @@ const ProfileScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={Styles.container}>
       <Spinner
         visible={loading}
         color={Colors.whiteColor}
@@ -35,13 +36,8 @@ const ProfileScreen = ({navigation}) => {
         animation="fade"
       />
 
-      <View style={styles.topContainer}>
-        <View
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            paddingBottom: heightToDp(20),
-          }}>
+      <View style={Styles.topContainer}>
+        <View style={Styles.userImageContainer}>
           <UserImageIcon
             imageContainerBorderRadius={widthToDp(40)}
             imageHeight={widthToDp(80)}
@@ -50,14 +46,14 @@ const ProfileScreen = ({navigation}) => {
           />
         </View>
 
-        <Text style={styles.nameTextStyle}>{`${name || 'User Name'}`}</Text>
+        <Text style={Styles.nameTextStyle}>{`${name || 'User Name'}`}</Text>
 
         <Text
-          style={[styles.emailTextStyle, {paddingBottom: heightToDp(12)}]}>{`${
+          style={[Styles.emailTextStyle, {paddingBottom: heightToDp(12)}]}>{`${
           email || 'User Email'
         }`}</Text>
 
-        <View style={{alignItems: 'center', paddingBottom: heightToDp(48)}}>
+        <View style={Styles.upgradeButtonContainer}>
           <PrimaryButton
             buttonLabel="UPGRADE"
             buttonTextColor={Colors.primaryRedColor}
@@ -66,11 +62,7 @@ const ProfileScreen = ({navigation}) => {
             contentHorizontalPadding={widthToDp(0)}
           />
         </View>
-        <View
-          style={{
-            marginLeft: widthToDp(18),
-            marginRight: widthToDp(16),
-          }}>
+        <View style={Styles.exerciseCardContainer}>
           <ExerciseCard
             cardName="workoutHistory"
             cardText="View Workout History"
@@ -78,11 +70,7 @@ const ProfileScreen = ({navigation}) => {
           />
         </View>
 
-        <View
-          style={{
-            marginLeft: widthToDp(18),
-            marginRight: widthToDp(16),
-          }}>
+        <View style={Styles.exerciseCardContainer}>
           <ExerciseCard
             cardName="logout"
             cardText="Logout"
@@ -91,7 +79,7 @@ const ProfileScreen = ({navigation}) => {
         </View>
       </View>
 
-      <View style={styles.bottomContainer}>
+      <View style={Styles.bottomContainer}>
         <ExerciseCard cardName="wixx" cardText="WIXX" />
       </View>
     </View>
@@ -99,36 +87,3 @@ const ProfileScreen = ({navigation}) => {
 };
 
 export default ProfileScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-    backgroundColor: Colors.whiteColor,
-  },
-  topContainer: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    paddingTop: heightToDp(50),
-  },
-  bottomContainer: {
-    justifyContent: 'flex-end',
-    paddingBottom: heightToDp(30),
-    paddingHorizontal: widthToDp(30),
-  },
-  nameTextStyle: {
-    textAlign: 'center',
-    fontFamily: 'Poppins',
-    fontSize: widthToDp(20),
-    fontWeight: '500',
-    color: Colors.primaryTextColor,
-    paddingBottom: heightToDp(4),
-  },
-  emailTextStyle: {
-    textAlign: 'center',
-    fontFamily: 'Poppins',
-    fontSize: widthToDp(16),
-    fontWeight: '500',
-    color: Colors.primaryTextColor,
-  },
-});
