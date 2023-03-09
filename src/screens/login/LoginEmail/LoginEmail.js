@@ -63,7 +63,7 @@ const LoginEmail = ({navigation}) => {
       <Spinner
         visible={loading}
         color={Colors.whiteColor}
-        overlayColor={Colors.inputBackgroundWhite}
+        overlayColor={Colors.loginOverlayColor}
         animation="fade"
       />
 
