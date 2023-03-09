@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import {logoutUser} from '@app/redux/slices/auth/authSlice';
 import {Colors} from '@app/constants';
@@ -11,6 +12,7 @@ const ProfileScreen = ({navigation}) => {
   const {name, email} = useSelector(state => state?.auth?.userInfo);
 
   const dispatch = useDispatch();
+  const loading = useSelector(state => state?.auth?.loading);
 
   const logout = () => {
     dispatch(logoutUser())
@@ -26,6 +28,13 @@ const ProfileScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <Spinner
+        visible={loading}
+        color={Colors.whiteColor}
+        overlayColor={Colors.loginOverlayColor}
+        animation="fade"
+      />
+
       <View style={styles.topContainer}>
         <View
           style={{
