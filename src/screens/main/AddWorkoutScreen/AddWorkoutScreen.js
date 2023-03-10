@@ -63,7 +63,9 @@ const AddWorkoutScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={Styles.container}>
+    <ScrollView
+      contentContainerStyle={Styles.container}
+      keyboardShouldPersistTaps="handled">
       <Spinner
         visible={loading}
         color={Colors.whiteColor}
