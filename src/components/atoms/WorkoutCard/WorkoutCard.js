@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Colors} from '@app/constants';
 import {Styles} from './WorkoutCardStyles';
 
-const WorkoutCard = () => {
+const WorkoutCard = ({workoutName}) => {
   return (
     <View style={Styles.container}>
       <TouchableOpacity style={Styles.playIconContainer}>
@@ -18,7 +18,7 @@ const WorkoutCard = () => {
 
       <View style={Styles.rightContainer}>
         <View style={Styles.topTextContainer}>
-          <Text style={Styles.topTextStyle}>Morning workout</Text>
+          <Text style={Styles.topTextStyle}>{workoutName || ''} </Text>
 
           <View style={Styles.bottomTextContainer}>
             <Text style={Styles.bottomTextStyle}>5 workout</Text>
