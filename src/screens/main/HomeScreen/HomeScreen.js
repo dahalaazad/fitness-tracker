@@ -8,8 +8,9 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import {useEffect} from 'react';
+import {useCallback, useEffect} from 'react';
 
+import {useFocusEffect} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {PrimaryButton, WorkoutCard} from '@app/components';
@@ -24,9 +25,11 @@ const HomeScreen = ({navigation}) => {
 
   const workoutList = useSelector(state => state?.fitness?.workoutList);
 
-  useEffect(() => {
-    dispatch(getAllWorkout());
-  }, [dispatch]);
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(getAllWorkout());
+    }, [dispatch]),
+  );
 
   return (
     <>
