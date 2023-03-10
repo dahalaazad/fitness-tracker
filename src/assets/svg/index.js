@@ -9,6 +9,7 @@ import CrownIcon from './crown-icon.svg';
 import LogoutIcon from './logout-icon.svg';
 import WixxIcon from './wixx-icon.svg';
 import SkipNextIcon from './skip-icon.svg';
+import AddIcon from './add-icon.svg';
 
 export {
   GoogleLogo,
@@ -22,4 +23,5 @@ export {
   LogoutIcon,
   WixxIcon,
   SkipNextIcon,
+  AddIcon,
 };
