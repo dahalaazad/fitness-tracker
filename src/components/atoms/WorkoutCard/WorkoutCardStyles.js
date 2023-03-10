@@ -9,7 +9,6 @@ export const Styles = StyleSheet.create({
     marginHorizontal: widthToDp(30),
     marginVertical: heightToDp(8),
     borderRadius: widthToDp(20),
-    elevation: 3,
     shadowRadius: 20,
     shadowColor: Colors.boxShadowColor,
   },
@@ -20,6 +19,9 @@ export const Styles = StyleSheet.create({
     paddingHorizontal: widthToDp(12),
     borderTopLeftRadius: widthToDp(20),
     borderBottomLeftRadius: widthToDp(20),
+    elevation: 1,
+    shadowRadius: 20,
+    shadowColor: Colors.boxShadowColor,
   },
   rightContainer: {
     flex: 9,
@@ -28,6 +30,9 @@ export const Styles = StyleSheet.create({
     paddingLeft: widthToDp(10),
     borderTopRightRadius: widthToDp(20),
     borderBottomRightRadius: widthToDp(20),
+    elevation: 1,
+    shadowRadius: 20,
+    shadowColor: Colors.boxShadowColor,
   },
   topTextContainer: {
     paddingBottom: heightToDp(4),
