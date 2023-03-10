@@ -5,38 +5,77 @@ import {
   StatusBar,
   ImageBackground,
   ScrollView,
+  FlatList,
+  TouchableOpacity,
 } from 'react-native';
+import {useEffect} from 'react';
 
-import {PrimaryButton} from '@app/components';
+import {useDispatch, useSelector} from 'react-redux';
+
+import {PrimaryButton, WorkoutCard} from '@app/components';
 import {Colors, Images} from '@app/constants';
-import {heightToDp, widthToDp} from '@app/utils';
-import {SkippingIcon} from '@app/assets/svg';
+import {heightToDp, width, widthToDp} from '@app/utils';
+import {AddIcon, SkippingIcon} from '@app/assets/svg';
 import {Styles} from './HomeScreenStyles';
+import {getAllWorkout} from '@app/redux/slices/fitness/fitnessSlice';
 
 const HomeScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+
+  const workoutList = useSelector(state => state?.fitness?.workoutList);
+
+  useEffect(() => {
+    dispatch(getAllWorkout());
+  }, [dispatch]);
+
   return (
-    <ScrollView style={Styles.container}>
-      <StatusBar backgroundColor="#000" />
+    <>
+      {workoutList.length > 0 ? (
+        <View style={Styles.mainContainer}>
+          <Text style={Styles.workoutTitleStyle}>My Workouts</Text>
 
-      <View style={{flex: 1}}>
-        <View style={Styles.mainItemContainer}>
-          <View style={{paddingBottom: heightToDp(24)}}>
-            <SkippingIcon />
-          </View>
+          <FlatList
+            data={workoutList}
+            renderItem={({item}) => (
+              <WorkoutCard workoutName={item?.attributes?.name} />
+            )}
+            keyExtractor={item => item?.id}
+            contentContainerStyle={{
+              justifyContent: 'flex-start',
+            }}
+          />
 
-          <Text style={Styles.textStyle}>
-            You haven’t added any workout yet.
-          </Text>
+          <TouchableOpacity
+            style={Styles.addIconContainer}
+            onPress={() => navigation.navigate('AddWorkoutScreen')}>
+            <AddIcon />
+          </TouchableOpacity>
         </View>
+      ) : (
+        <ScrollView style={Styles.container}>
+          <StatusBar backgroundColor="#000" />
 
-        <PrimaryButton
-          buttonLabel="ADD NEW WORKOUT"
-          buttonBgColor={Colors.primaryRedColor}
-          buttonTextColor={Colors.whiteColor}
-          onPressHandler={() => navigation.navigate('AddWorkoutScreen')}
-        />
-      </View>
-    </ScrollView>
+          <View style={{flex: 1}}>
+            <View style={Styles.mainItemContainer}>
+              <View style={{paddingBottom: heightToDp(24)}}>
+                <SkippingIcon />
+              </View>
+
+              <Text style={Styles.textStyle}>
+                You haven’t added any workout yet.
+              </Text>
+            </View>
+
+            <PrimaryButton
+              buttonLabel="ADD NEW WORKOUT"
+              buttonBgColor={Colors.primaryRedColor}
+              buttonTextColor={Colors.whiteColor}
+              onPressHandler={() => navigation.navigate('AddWorkoutScreen')}
+            />
+          </View>
+        </ScrollView>
+      )}
+    </>
   );
 };
 

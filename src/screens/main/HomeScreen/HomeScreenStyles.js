@@ -22,4 +22,22 @@ export const Styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  mainContainer: {
+    flex: 1,
+    backgroundColor: Colors.whiteColor,
+  },
+  workoutTitleStyle: {
+    paddingTop: heightToDp(34),
+    paddingLeft: widthToDp(30),
+    paddingBottom: heightToDp(26),
+    color: Colors.secondaryTextColor,
+    fontFamily: 'Poppins',
+    fontSize: widthToDp(16),
+    fontWeight: '500',
+  },
+  addIconContainer: {
+    alignItems: 'flex-end',
+    paddingRight: widthToDp(30),
+    paddingBottom: heightToDp(30),
+  },
 });
