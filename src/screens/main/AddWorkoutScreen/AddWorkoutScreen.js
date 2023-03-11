@@ -6,7 +6,7 @@ import {useForm, useWatch} from 'react-hook-form';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import {AddExerciseModal, InputField, PrimaryButton} from '@app/components';
-import {height, heightToDp, widthToDp} from '@app/utils';
+import {height, heightToDp, showToast, widthToDp} from '@app/utils';
 import {Colors} from '@app/constants';
 import {ModalContainerComponent} from '@app/components';
 import {Styles} from './AddWorkoutScreenStyles';
@@ -54,7 +54,8 @@ const AddWorkoutScreen = ({navigation}) => {
       .then(originalPromiseResult => {
         if (originalPromiseResult?.status === 200) {
           navigation.navigate('HomeScreen');
-          alert('Workout Added');
+
+          showToast('success', 'Done!', 'Your Workout has been added');
         }
       })
       .catch(rejectedValueOrSerializedError => {
