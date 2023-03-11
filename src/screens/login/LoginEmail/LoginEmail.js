@@ -15,7 +15,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 import {InputField, PrimaryButton} from '@app/components';
 import {Colors, Images, InputRules} from '@app/constants';
-import {heightToDp} from '@app/utils';
+import {heightToDp, showToast} from '@app/utils';
 import {Styles} from '../LoginStyles';
 import {authUser} from '@app/redux/slices/auth/authSlice';
 
@@ -54,6 +54,8 @@ const LoginEmail = ({navigation}) => {
       .then(originalPromiseResult => {
         if (originalPromiseResult?.status === 200) {
           navigation.navigate('MainStack');
+
+          showToast('success', 'Success', 'Welcome to Mercury');
         }
       })
       .catch(rejectedValueOrSerializedError => {
