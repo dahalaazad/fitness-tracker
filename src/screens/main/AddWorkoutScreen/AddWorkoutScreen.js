@@ -97,7 +97,7 @@ const AddWorkoutScreen = ({navigation}) => {
             buttonBgColor={Colors.primaryRedColor}
             buttonTextColor={Colors.whiteColor}
             onPressHandler={handleSubmit(onSaveWorkout)}
-            disabled={inputFieldValue === '' ? true : false}
+            disabled={inputFieldValue === ''}
           />
         </View>
       </View>
