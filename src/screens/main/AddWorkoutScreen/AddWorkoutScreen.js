@@ -24,6 +24,7 @@ const AddWorkoutScreen = ({navigation}) => {
       workoutName: '',
     },
   });
+
   const {
     control,
     handleSubmit,
