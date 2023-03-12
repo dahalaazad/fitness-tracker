@@ -26,4 +26,5 @@ export const Colors = {
   clockIconColor: '#717982',
   boxShadowColor: 'rgba(51, 51, 51,1)',
   cardTextColor: '#202020',
+  workoutCardRedColor: '#F8EEED',
 };

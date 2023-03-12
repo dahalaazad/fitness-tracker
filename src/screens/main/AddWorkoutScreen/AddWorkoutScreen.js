@@ -1,27 +1,38 @@
 import {useState} from 'react';
 import {Text, View, ScrollView, TouchableOpacity} from 'react-native';
 
-import {useForm} from 'react-hook-form';
+import {useDispatch, useSelector} from 'react-redux';
+import {useForm, useWatch} from 'react-hook-form';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import {AddExerciseModal, InputField, PrimaryButton} from '@app/components';
 import {height, heightToDp, widthToDp} from '@app/utils';
 import {Colors} from '@app/constants';
 import {ModalContainerComponent} from '@app/components';
 import {Styles} from './AddWorkoutScreenStyles';
+import {addWorkout} from '@app/redux/slices/fitness/fitnessSlice';
 
 const AddWorkoutScreen = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state?.fitness?.loading);
+
+  const form = useForm({
+    defaultValues: {
+      workoutName: '',
+    },
+  });
 
   const {
     control,
     handleSubmit,
     setError,
     formState: {errors},
-  } = useForm({
-    defaultValues: {
-      workoutName: '',
-    },
-  });
+  } = form;
+
+  const inputFieldValue = useWatch({control, name: 'workoutName'});
 
   const toggleModal = () => {
     setModalVisible(!modalVisible);
@@ -31,8 +42,38 @@ const AddWorkoutScreen = ({navigation}) => {
     setModalVisible(false);
   };
 
+  const onSaveWorkout = workoutData => {
+    const {workoutName} = workoutData;
+    dispatch(
+      addWorkout({
+        workout: {
+          name: workoutName,
+        },
+      }),
+    )
+      .unwrap()
+      .then(originalPromiseResult => {
+        if (originalPromiseResult?.status === 200) {
+          navigation.navigate('HomeScreen');
+          alert('Workout Added');
+        }
+      })
+      .catch(rejectedValueOrSerializedError => {
+        return rejectedValueOrSerializedError;
+      });
+  };
+
   return (
-    <ScrollView contentContainerStyle={Styles.container}>
+    <ScrollView
+      contentContainerStyle={Styles.container}
+      keyboardShouldPersistTaps="handled">
+      <Spinner
+        visible={loading}
+        color={Colors.whiteColor}
+        overlayColor={Colors.loginOverlayColor}
+        animation="fade"
+      />
+
       <View onPress={closeModal} style={Styles.secondaryContainer}>
         <View style={{paddingTop: heightToDp(40)}}>
           <Text style={Styles.topTextStyle}>Workout Name</Text>
@@ -43,7 +84,7 @@ const AddWorkoutScreen = ({navigation}) => {
             placeholderText=""
             iconName="workoutName"
             inputOutline={true}
-            // {...(modalVisible ? {bgColor: 'transparent'} : {})}
+            form={form}
           />
 
           <TouchableOpacity onPress={toggleModal}>
@@ -56,8 +97,8 @@ const AddWorkoutScreen = ({navigation}) => {
             buttonLabel="SAVE WORKOUT"
             buttonBgColor={Colors.primaryRedColor}
             buttonTextColor={Colors.whiteColor}
-            onPressHandler={() => navigation.navigate('WorkoutScreen')}
-            disabled={true}
+            onPressHandler={handleSubmit(onSaveWorkout)}
+            disabled={inputFieldValue === ''}
           />
         </View>
       </View>

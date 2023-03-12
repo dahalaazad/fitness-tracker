@@ -12,6 +12,7 @@ import {Styles} from './InputFieldStyles';
 
 const InputField = ({
   control,
+  form = {register: null},
   errors = {},
   rules = {},
   inputName = '',
@@ -26,6 +27,8 @@ const InputField = ({
   inputFieldOutlineColor = '',
   ...props
 }) => {
+  const {register} = form;
+
   const inputFieldLeftIcon = name => {
     switch (name) {
       case 'email':
@@ -86,6 +89,8 @@ const InputField = ({
               placeholderTextColor={Colors.whiteColor}
               secureTextEntry={secureTextEntry}
               onChangeText={onChange}
+              name={inputName}
+              {...(inputName === 'workoutName' && register(inputName))}
               {...props}
             />
 
